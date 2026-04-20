@@ -1,0 +1,420 @@
+---
+import '../styles/global.css';
+import '@fontsource/plus-jakarta-sans/700.css';
+import '@fontsource/plus-jakarta-sans/800.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentPage?: 'inicio' | 'calidades' | 'viviendas' | 'planos';
+}
+
+const {
+  title = 'Molí Baix — Tu hogar en Massamagrell',
+  description = 'Molí Baix — Obra nueva en Massamagrell, Valencia. Viviendas de 1, 2 y 3 dormitorios. Desde 145.000€. Diseño, luz y eficiencia energética.',
+  currentPage = 'inicio',
+} = Astro.props;
+
+const navItems = [
+  { label: 'Inicio', href: '/', page: 'inicio' },
+  { label: 'Calidades', href: '/calidades', page: 'calidades' },
+  { label: 'Viviendas', href: '/viviendas', page: 'viviendas' },
+  { label: 'Planos', href: '/planos', page: 'planos' },
+];
+
+const mobileNavItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Calidades', href: '/calidades' },
+  { label: 'Viviendas', href: '/viviendas' },
+  { label: 'Planos y Disponibilidad', href: '/planos' },
+];
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#f6faff" />
+  <meta name="color-scheme" content="light" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-primary focus:text-on-primary focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Saltar al contenido</a>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav id="main-nav" aria-label="Principal" class="fixed top-0 w-full z-50 glass-nav transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center h-20 transition-all duration-300" id="nav-inner">
+      <a href="/" class="block">
+        <img src="/images/logos/molibaix-color.webp" alt="Molí Baix" class="h-10 w-auto" />
+      </a>
+      <div class="hidden lg:flex items-center gap-10">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'nav-link text-sm pb-1 border-b-2 transition-all duration-300',
+              item.page === currentPage
+                ? 'font-semibold text-primary border-primary'
+                : 'font-medium text-on-surface-variant hover:text-primary border-transparent hover:border-primary',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center gap-4">
+        <button type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-modal" class="hidden sm:inline-flex btn-primary-gradient text-on-primary px-7 py-2.5 rounded-full font-semibold text-sm transition-all active:scale-95 hover:shadow-lg">
+          Contáctanos
+        </button>
+        <button id="menu-toggle" type="button" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="block w-6 h-0.5 bg-on-background transition-all duration-300" aria-hidden="true"></span>
+          <span class="block w-6 h-0.5 bg-on-background transition-all duration-300" aria-hidden="true"></span>
+          <span class="block w-4 h-0.5 bg-on-background transition-all duration-300" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu backdrop -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-on-background/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-screen bg-surface-container-lowest shadow-2xl z-50 p-10 flex flex-col gap-8">
+      <button id="menu-close" type="button" class="self-end p-2" aria-label="Cerrar menú">
+        <span class="material-symbols-outlined text-3xl text-on-surface" aria-hidden="true">close</span>
+      </button>
+      {mobileNavItems.map((item) => (
+        <a href={item.href} class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">{item.label}</a>
+      ))}
+      <button type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-modal" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-semibold text-center mt-auto mobile-link">Contáctanos</button>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- ═══════════ CONTACT MODAL ═══════════ -->
+  <div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-6" style="overscroll-behavior: contain;">
+    <div id="contact-backdrop" class="absolute inset-0 bg-on-background/75 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <div id="contact-dialog" tabindex="-1" class="relative z-10 w-full max-w-5xl max-h-[94vh] overflow-y-auto lg:overflow-hidden rounded-2xl lg:rounded-3xl editorial-shadow-lg bg-surface-container-lowest grid grid-cols-1 lg:grid-cols-5 opacity-0 scale-95 transition-all duration-300">
+
+      <!-- Mobile close (floats over image) -->
+      <button type="button" id="contact-close-mobile" aria-label="Cerrar diálogo de contacto" class="lg:hidden absolute top-3 right-3 z-20 w-10 h-10 rounded-full bg-on-background/50 backdrop-blur-md flex items-center justify-center active:scale-95 transition-all">
+        <span class="material-symbols-outlined text-white" aria-hidden="true">close</span>
+      </button>
+
+      <!-- Left visual panel -->
+      <div class="relative overflow-hidden lg:col-span-2 min-h-[160px] lg:min-h-0">
+        <img src="/images/exterior-esquina.webp" alt="" width="800" height="900" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-br from-on-background/85 via-on-background/55 to-on-background/90"></div>
+        <div class="relative z-10 h-full flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+          <div>
+            <span class="label-md tracking-[0.3em] text-primary-fixed-dim font-bold text-[10px] sm:text-xs">— Contacto</span>
+            <h3 id="contact-modal-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-headline text-white mt-3 lg:mt-4">
+              Hablemos de<br/>tu nuevo hogar
+            </h3>
+            <p class="hidden lg:block text-white/70 text-sm font-light mt-5 max-w-xs">
+              Te respondemos en menos de 24h, sin compromiso.
+            </p>
+          </div>
+          <div class="hidden lg:block space-y-4 mt-8">
+            <a href="mailto:comercial@viboinvestment.com" class="group flex items-center gap-4">
+              <div class="w-11 h-11 rounded-full bg-white/8 backdrop-blur-md border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-white text-base" aria-hidden="true">mail</span>
+              </div>
+              <div>
+                <p class="text-[9px] uppercase tracking-[0.25em] text-white/45 font-bold mb-0.5">Email</p>
+                <p class="text-white font-semibold text-xs">comercial@viboinvestment.com</p>
+              </div>
+            </a>
+            <a href="tel:+34620197665" class="group flex items-center gap-4">
+              <div class="w-11 h-11 rounded-full bg-white/8 backdrop-blur-md border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-white text-base" aria-hidden="true">call</span>
+              </div>
+              <div>
+                <p class="text-[9px] uppercase tracking-[0.25em] text-white/45 font-bold mb-0.5">Teléfono</p>
+                <p class="text-white font-semibold text-xs tabular-nums">(+34) 620 197 665</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right form panel -->
+      <div class="lg:col-span-3 p-6 sm:p-10 lg:p-12 lg:overflow-y-auto">
+        <div class="flex items-start justify-between mb-5 lg:mb-6">
+          <div>
+            <span class="label-md tracking-[0.3em] text-primary font-bold text-[10px] sm:text-xs">— Solicita información</span>
+            <h4 class="text-lg sm:text-xl lg:text-2xl font-extrabold font-headline text-on-background mt-2 lg:mt-3">
+              Cuéntanos qué buscas
+            </h4>
+          </div>
+          <button type="button" id="contact-close" aria-label="Cerrar diálogo" class="hidden lg:flex w-10 h-10 rounded-full items-center justify-center hover:bg-surface-container transition-colors shrink-0">
+            <span class="material-symbols-outlined text-on-background" aria-hidden="true">close</span>
+          </button>
+        </div>
+
+        <!-- Mobile contact links (shown instead of inside visual panel) -->
+        <div class="lg:hidden flex flex-wrap gap-2 mb-5">
+          <a href="mailto:comercial@viboinvestment.com" class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container border border-surface-container-high/40 text-xs font-semibold text-on-background">
+            <span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">mail</span>
+            Email
+          </a>
+          <a href="tel:+34620197665" class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container border border-surface-container-high/40 text-xs font-semibold text-on-background tabular-nums">
+            <span class="material-symbols-outlined text-primary text-sm" aria-hidden="true">call</span>
+            (+34) 620 197 665
+          </a>
+        </div>
+
+        <form id="contact-modal-form" class="space-y-5 lg:space-y-6" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="cm-name" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Nombre</label>
+              <input id="cm-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"
+                class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors" />
+            </div>
+            <div>
+              <label for="cm-tel" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Teléfono</label>
+              <input id="cm-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="+34 ___ ___ ___"
+                class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors" />
+            </div>
+          </div>
+          <div>
+            <label for="cm-email" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Email</label>
+            <input id="cm-email" name="email" type="email" required autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" placeholder="tu@email.com"
+              class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors" />
+          </div>
+          <div>
+            <label for="cm-message" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Mensaje</label>
+            <textarea id="cm-message" name="message" rows="3" placeholder="¿En qué podemos ayudarte?"
+              class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors resize-none"></textarea>
+          </div>
+          <div class="flex items-start gap-3 pt-1">
+            <input type="checkbox" required id="modal-privacy" name="privacy" class="mt-1 accent-primary" />
+            <label for="modal-privacy" class="text-xs text-secondary">
+              Acepto la <a href="/privacidad" class="text-primary hover:underline font-semibold">Política de Privacidad</a> y el <a href="/aviso-legal" class="text-primary hover:underline font-semibold">Aviso Legal</a>.
+            </label>
+          </div>
+          <button type="submit" class="group w-full flex items-center justify-center gap-3 btn-primary-gradient text-on-primary py-4 rounded-full font-bold text-base transition-all hover:shadow-2xl active:scale-[0.98]">
+            Enviar Solicitud
+            <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+          </button>
+          <p id="contact-modal-status" role="status" aria-live="polite" class="text-sm text-primary font-semibold min-h-[1.25rem]"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="bg-on-background text-inverse-on-surface py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div>
+          <img src="/images/logos/molibaix-white.webp" alt="Molí Baix" class="h-10 w-auto mb-6" />
+          <p class="text-inverse-on-surface/50 text-sm">
+            Elevando el estándar residencial en Valencia a través del diseño consciente y la excelencia arquitectónica.
+          </p>
+          <p class="text-inverse-on-surface/30 text-xs mt-4 flex items-center gap-2">Un proyecto de <img src="/images/logos/vibo_logo.svg" alt="VIBO Investment" class="h-4 w-auto invert" /></p>
+        </div>
+        <div>
+          <h4 class="label-md tracking-widest text-white/70 mb-6">Explorar</h4>
+          <ul class="space-y-3 text-sm text-inverse-on-surface/50">
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/">Inicio</a></li>
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/calidades">Calidades</a></li>
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/viviendas">Viviendas</a></li>
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/planos">Planos y Disponibilidad</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="label-md tracking-widest text-white/70 mb-6">Legal</h4>
+          <ul class="space-y-3 text-sm text-inverse-on-surface/50">
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/privacidad">Política de Privacidad</a></li>
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/aviso-legal">Aviso Legal</a></li>
+            <li><a class="hover:text-primary-fixed-dim transition-colors" href="/cookies">Cookies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="label-md tracking-widest text-white/70 mb-6">Contacto</h4>
+          <p class="text-inverse-on-surface/50 text-sm mb-1">Massamagrell, Valencia</p>
+          <a href="mailto:comercial@viboinvestment.com" class="text-inverse-on-surface/50 text-sm hover:text-primary-fixed-dim transition-colors block mb-3">comercial@viboinvestment.com</a>
+          <a href="tel:+34620197665" class="text-primary-fixed-dim font-bold tabular-nums">(+34) 620 197 665</a>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs tracking-wide text-inverse-on-surface/30">&copy; 2026 Molí Baix. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a class="text-inverse-on-surface/30 hover:text-primary-fixed-dim transition-colors" href="https://molibaix.com" target="_blank" rel="noopener" aria-label="Web original molibaix.com (abre en nueva pestaña)">
+            <span class="material-symbols-outlined text-xl" aria-hidden="true">public</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SHARED SCRIPTS ═══════════ -->
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── Decorative icons: mark all Material Symbols as aria-hidden ── */
+    document.querySelectorAll('.material-symbols-outlined').forEach((el) => {
+      if (!el.hasAttribute('aria-hidden')) el.setAttribute('aria-hidden', 'true');
+    });
+
+    /* ── Reduced motion global guard ── */
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      gsap.defaults({ duration: 0 });
+    }
+
+    /* ── Nav shrink ── */
+    const navInner = document.getElementById('nav-inner');
+    const nav = document.getElementById('main-nav');
+    ScrollTrigger.create({
+      start: 'top -100',
+      onUpdate: (self) => {
+        if (self.direction === 1 && self.progress > 0) {
+          nav?.classList.add('shadow-lg');
+          navInner?.classList.remove('h-20');
+          navInner?.classList.add('h-14');
+        } else if (self.progress === 0) {
+          nav?.classList.remove('shadow-lg');
+          navInner?.classList.remove('h-14');
+          navInner?.classList.add('h-20');
+        }
+      },
+    });
+
+    /* ── Scroll reveals (skipped when reduced-motion) ── */
+    if (!prefersReducedMotion) {
+      document.querySelectorAll('.anim-reveal').forEach((el) => {
+        gsap.from(el, {
+          opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        });
+      });
+
+      document.querySelectorAll('.anim-stagger').forEach((el) => {
+        gsap.from(el.children, {
+          opacity: 0, y: 35, duration: 0.7, ease: 'power3.out', stagger: 0.08,
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        });
+      });
+    }
+
+    /* ── Counter animation ── */
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      const target = parseInt(el.getAttribute('data-count') || '0');
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target, duration: 2, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        onUpdate: () => { (el as HTMLElement).textContent = Math.round(obj.val).toString(); },
+      });
+    });
+
+    /* ── Mobile menu ── */
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBackdrop = document.getElementById('menu-backdrop');
+    const menuToggle = document.getElementById('menu-toggle');
+    function openMenu() {
+      mobileMenu?.classList.add('open');
+      menuBackdrop?.classList.remove('opacity-0', 'pointer-events-none');
+      menuBackdrop?.classList.add('opacity-100');
+      menuToggle?.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      mobileMenu?.classList.remove('open');
+      menuBackdrop?.classList.add('opacity-0', 'pointer-events-none');
+      menuBackdrop?.classList.remove('opacity-100');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle?.addEventListener('click', openMenu);
+    document.getElementById('menu-close')?.addEventListener('click', closeMenu);
+    menuBackdrop?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', closeMenu));
+
+    /* ── Contact modal (accessible dialog with focus trap) ── */
+    const contactModal = document.getElementById('contact-modal');
+    const contactBackdrop = document.getElementById('contact-backdrop');
+    const contactDialog = document.getElementById('contact-dialog');
+    let lastFocused: HTMLElement | null = null;
+    const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    function openContact() {
+      if (!contactModal) return;
+      closeMenu();
+      lastFocused = document.activeElement as HTMLElement;
+      contactModal.classList.remove('hidden');
+      contactModal.classList.add('flex');
+      contactModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        contactBackdrop?.classList.remove('opacity-0');
+        contactBackdrop?.classList.add('opacity-100');
+        contactDialog?.classList.remove('opacity-0', 'scale-95');
+        contactDialog?.classList.add('opacity-100', 'scale-100');
+        const first = contactDialog?.querySelector<HTMLElement>(FOCUSABLE);
+        first?.focus();
+      });
+    }
+    function closeContact() {
+      if (!contactModal) return;
+      contactBackdrop?.classList.add('opacity-0');
+      contactBackdrop?.classList.remove('opacity-100');
+      contactDialog?.classList.add('opacity-0', 'scale-95');
+      contactDialog?.classList.remove('opacity-100', 'scale-100');
+      setTimeout(() => {
+        contactModal.classList.add('hidden');
+        contactModal.classList.remove('flex');
+        contactModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lastFocused?.focus();
+      }, prefersReducedMotion ? 0 : 280);
+    }
+    document.querySelectorAll('[data-contact-open]').forEach((b) => b.addEventListener('click', openContact));
+    document.getElementById('contact-close')?.addEventListener('click', closeContact);
+    document.getElementById('contact-close-mobile')?.addEventListener('click', closeContact);
+    contactBackdrop?.addEventListener('click', closeContact);
+
+    /* Focus trap + escape inside dialog */
+    contactModal?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { closeContact(); return; }
+      if (e.key !== 'Tab' || !contactDialog) return;
+      const focusables = Array.from(contactDialog.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+
+    document.getElementById('contact-modal-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const status = document.getElementById('contact-modal-status');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+      setTimeout(() => {
+        if (status) status.textContent = '✓ Solicitud enviada. Te contactaremos en menos de 24h.';
+        if (submitBtn) submitBtn.textContent = 'Enviado';
+      }, 400);
+    });
+  </script>
+
+</body>
+</html>

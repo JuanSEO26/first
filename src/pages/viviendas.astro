@@ -1,0 +1,464 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  currentPage="viviendas"
+  title="Viviendas — Molí Baix"
+  description="Descubre las viviendas de Molí Baix en Massamagrell. Lofts, áticos, 1, 2 y 3 dormitorios. Desde 145.000€. Amplias terrazas y diseño contemporáneo."
+>
+
+  <!-- ═══════════ PAGE HERO ═══════════ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img width="1920" height="1080" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center scale-105"
+        src="/images/salon-ventanal.webp"
+        alt="Interior luminoso de vivienda Molí Baix" />
+      <div class="absolute inset-0 bg-gradient-to-r from-on-background/70 via-on-background/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-on-background/30 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-40" id="viviendas-hero">
+      <nav aria-label="Breadcrumb" class="hero-anim-init flex items-center gap-2 text-sm text-white/50 mb-8">
+        <a href="/" class="hover:text-white transition-colors">Inicio</a>
+        <span class="material-symbols-outlined text-base">chevron_right</span>
+        <span class="text-white" aria-current="page">Viviendas</span>
+      </nav>
+      <span class="hero-anim-init label-md tracking-[0.25em] text-primary-fixed-dim mb-4 block font-bold">Viviendas</span>
+      <h1 class="hero-anim-init text-4xl sm:text-5xl lg:text-7xl font-extrabold font-headline text-white mb-6">
+        Encuentra tu<br/>hogar ideal
+      </h1>
+      <p class="hero-anim-init text-xl lg:text-2xl text-white/70 max-w-xl font-light mb-10">
+        Desde lofts en planta baja hasta áticos con solárium privado. Múltiples configuraciones para adaptarse a tu estilo de vida.
+      </p>
+      <div class="flex flex-wrap items-center gap-4" data-hero-ctas>
+        <a href="/planos" class="hero-anim-init btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
+          Ver Planos y Disponibilidad
+        </a>
+        <a href="/calidades" class="hero-anim-init border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+          Ver Calidades
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ GALERÍA DE INTERIORES ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Galería</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Espacios diseñados para vivir
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Luminosidad, amplitud y materiales de primera calidad. Descubre cómo son las viviendas de Molí Baix por dentro.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 anim-reveal">
+        <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <img class="w-full h-full object-cover img-zoom" loading="lazy" src="/images/salon.webp" alt="Salón amplio con luz natural" />
+        </div>
+        <div class="rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <img class="w-full h-full object-cover img-zoom aspect-square" loading="lazy" src="/images/cocina.webp" alt="Cocina equipada" />
+        </div>
+        <div class="rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <img class="w-full h-full object-cover img-zoom aspect-square" loading="lazy" src="/images/dormitorio-matrimonio.webp" alt="Dormitorio principal" />
+        </div>
+        <div class="rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <img class="w-full h-full object-cover img-zoom aspect-square" loading="lazy" src="/images/bano.webp" alt="Baño premium" />
+        </div>
+        <div class="rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <img class="w-full h-full object-cover img-zoom aspect-square" loading="lazy" src="/images/dormitorio-doble.webp" alt="Dormitorio doble" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ TIPOLOGÍAS ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Tipologías</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          6 tipologías, un mismo estándar
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          78 viviendas distribuidas en 6 configuraciones distintas. Todas comparten las mismas calidades premium, pero cada una se adapta a necesidades diferentes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
+
+        <!-- Loft -->
+        <a href="/planos?dorm=1&planta=0" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/salon-ventanal.webp" alt="Loft en planta baja" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">Loft</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 145.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dormitorio + 1 baño
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 75 m² – 134 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 10,75 – 23,41 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Planta baja
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- Ático -->
+        <a href="/planos?planta=4" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden relative">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/plano-exteriror-pajaro.webp" alt="Vista aérea del complejo con terrazas y solárium" />
+            <span class="absolute top-3 right-3 label-md bg-primary text-on-primary px-3 py-1 rounded-full">Popular</span>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">Ático</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 191.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1, 2 o 3 dormitorios
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 93 m² – 226 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 36 – 107 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Planta 4ª + solárium privado
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 3 Dorm -->
+        <a href="/planos?dorm=3" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/salon.webp" alt="Vivienda de 3 dormitorios" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">3 Dormitorios</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 254.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 122 m² – 252 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 5,6 – 136 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 4ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 3 Dorm Esquinero -->
+        <a href="/planos?dorm=3" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/exterior-esquina.webp" alt="Vivienda esquinera exterior" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">3 Dorm. Esquinero</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 260.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 129 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 7,65 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">explore</span> Orientación Sur
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 2 Dorm -->
+        <a href="/planos?dorm=2" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/cocina-salon.webp" alt="Vivienda de 2 dormitorios" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">2 Dormitorios</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 209.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 2 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 88 m² – 189 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 4,62 – 105 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 1 Dorm -->
+        <a href="/planos?dorm=1" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/dormitorio-matrimonio.webp" alt="Dormitorio luminoso de 1 dormitorio" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">1 Dormitorio</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 165.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dorm. + 1 baño
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 61 m² – 116 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 3,8 – 58 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ DESTACADOS ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <!-- Dormitorio principal -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-16 lg:mb-20">
+        <div class="relative anim-reveal">
+          <div class="rounded-2xl overflow-hidden editorial-shadow-lg h-full">
+            <img class="w-full h-full object-cover" loading="lazy"
+              src="/images/dormitorio-matrimonio.webp"
+              alt="Dormitorio principal amplio y luminoso" />
+          </div>
+        </div>
+        <div class="anim-reveal flex flex-col justify-center">
+          <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Dormitorios</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6">Tu espacio de descanso</h2>
+          <p class="text-on-surface-variant mb-8 text-lg">
+            Dormitorios amplios y luminosos, diseñados para maximizar el confort. Suelos porcelánicos efecto madera, carpintería de calidad y ventanas con rotura de puente térmico para el mejor aislamiento.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">king_bed</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Dormitorio principal</h4>
+                <p class="text-secondary text-xs mt-1">Con baño en suite en viviendas de 2 y 3 dormitorios.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">window</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Máxima luminosidad</h4>
+                <p class="text-secondary text-xs mt-1">Grandes ventanales con vidrio bajo emisivo y rotura de puente térmico.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">closet</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Armarios empotrados</h4>
+                <p class="text-secondary text-xs mt-1">Frentes de armario lacados con interior equipado en todas las habitaciones.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terraza / Exteriores -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div class="order-2 lg:order-1 anim-reveal flex flex-col justify-center">
+          <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Exteriores</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6">Vive al aire libre</h2>
+          <p class="text-on-surface-variant mb-8 text-lg">
+            Amplias terrazas privadas y zonas comunes ajardinadas. Cada vivienda incluye terraza con suelo porcelánico antideslizante, ideal para disfrutar del clima mediterráneo.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">balcony</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Terrazas de hasta 136 m²</h4>
+                <p class="text-secondary text-xs mt-1">Espacios exteriores generosos en todas las tipologías.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">park</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Jardines comunitarios</h4>
+                <p class="text-secondary text-xs mt-1">Zonas verdes y ajardinadas para el disfrute de todos los residentes.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">wb_sunny</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Solárium privado en áticos</h4>
+                <p class="text-secondary text-xs mt-1">Los áticos incluyen solárium privado con vistas panorámicas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 relative anim-reveal">
+          <div class="rounded-2xl overflow-hidden editorial-shadow-lg h-full">
+            <img class="w-full h-full object-cover" loading="lazy"
+              src="/images/plano-exteriror-pajaro3.webp"
+              alt="Vista aérea del complejo residencial Molí Baix" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ ZONAS COMUNES ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Zonas Comunes</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Mucho más que tu vivienda
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Espacios compartidos pensados para mejorar tu día a día sin salir de casa.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/gimnasio.webp" alt="Gimnasio equipado para residentes" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Gimnasio Equipado</h3>
+            <p class="text-secondary text-sm">Espacio exclusivo para residentes con equipamiento profesional. Cuida tu salud sin salir de casa.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/jardines.webp" alt="Jardines comunitarios" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Jardines y Zonas Verdes</h3>
+            <p class="text-secondary text-sm">Amplias zonas ajardinadas comunitarias para pasear y disfrutar al aire libre.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/ascensores.webp" alt="Ascensores de última generación" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Ascensores desde Garaje</h3>
+            <p class="text-secondary text-sm">Ascensores de última generación con acceso directo desde la plaza de garaje hasta tu planta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="bg-on-background relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="py-16 lg:py-24 px-6 lg:px-16 flex flex-col justify-center anim-reveal">
+          <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Siguiente paso</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-white mb-4">
+            ¿Quieres ver los planos en detalle?
+          </h2>
+          <p class="text-inverse-on-surface/50 text-lg mb-8">
+            Consulta la disponibilidad en tiempo real y los planos de cada tipología.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/planos" class="btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
+              Ver Planos y Disponibilidad
+            </a>
+            <a href="/#contacto" class="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+              Contactar con Ventas
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:block relative">
+          <img class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="/images/plano-exteriror-pajaro3.webp" alt="Vista aérea Molí Baix" />
+          <div class="absolute inset-0 bg-gradient-to-r from-on-background to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+
+<!-- ═══════════ PAGE-SPECIFIC SCRIPTS ═══════════ -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Hero entrance animation ── */
+  const hero = document.getElementById('viviendas-hero');
+  if (hero && !prefersReducedMotion) {
+    const breadcrumb = hero.querySelector('nav');
+    const label = hero.querySelector('.label-md');
+    const heading = hero.querySelector('h1');
+    const desc = hero.querySelector('p');
+    const ctas = hero.querySelectorAll('[data-hero-ctas] > a');
+    const tl = gsap.timeline({ delay: 0.2 });
+    if (breadcrumb) tl.fromTo(breadcrumb, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' });
+    if (label) tl.fromTo(label, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.25');
+    if (heading) tl.fromTo(heading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.35');
+    if (desc) tl.fromTo(desc, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+    if (ctas.length) tl.fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.12, ease: 'power3.out' }, '-=0.35');
+  } else if (hero) {
+    hero.querySelectorAll('.hero-anim-init').forEach((el) => (el as HTMLElement).style.opacity = '1');
+  }
+</script>

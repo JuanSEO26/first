@@ -1,912 +1,757 @@
 ---
-import '../styles/global.css';
-import '@fontsource/plus-jakarta-sans/700.css';
-import '@fontsource/plus-jakarta-sans/800.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Molí Baix — Obra nueva en Massamagrell, Valencia. Viviendas de 1, 2 y 3 dormitorios. Desde 145.000€. Diseño, luz y eficiencia energética." />
-  <title>Molí Baix — Tu hogar en Massamagrell</title>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
+<Layout currentPage="inicio">
 
-<body>
-
-  <!-- ═══════════ NAVIGATION ═══════════ -->
-  <nav id="main-nav" class="fixed top-0 w-full z-50 glass-nav transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center h-20 transition-all duration-300" id="nav-inner">
-      <a href="#" class="text-2xl font-extrabold tracking-tighter font-headline text-on-background">
-        Molí Baix
-      </a>
-      <div class="hidden lg:flex items-center gap-10">
-        <a href="#inicio" class="nav-link text-sm font-semibold text-primary border-b-2 border-primary pb-1 transition-all duration-300">Inicio</a>
-        <a href="#calidades" class="nav-link text-sm font-medium text-on-surface-variant hover:text-primary pb-1 border-b-2 border-transparent hover:border-primary transition-all duration-300">Calidades</a>
-        <a href="#viviendas" class="nav-link text-sm font-medium text-on-surface-variant hover:text-primary pb-1 border-b-2 border-transparent hover:border-primary transition-all duration-300">Viviendas</a>
-        <a href="#planos" class="nav-link text-sm font-medium text-on-surface-variant hover:text-primary pb-1 border-b-2 border-transparent hover:border-primary transition-all duration-300">Planos</a>
-        <a href="#contacto" class="nav-link text-sm font-medium text-on-surface-variant hover:text-primary pb-1 border-b-2 border-transparent hover:border-primary transition-all duration-300">Contacto</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="#contacto" class="hidden sm:inline-flex btn-primary-gradient text-on-primary px-7 py-2.5 rounded-full font-semibold text-sm transition-all active:scale-95 hover:shadow-lg">
-          Descargar Folleto
-        </a>
-        <button id="menu-toggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">
-          <span class="block w-6 h-0.5 bg-on-background transition-all duration-300"></span>
-          <span class="block w-6 h-0.5 bg-on-background transition-all duration-300"></span>
-          <span class="block w-4 h-0.5 bg-on-background transition-all duration-300"></span>
-        </button>
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img id="hero-img" width="1920" height="1080" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center scale-105"
+        src="/images/plano-exteriror-pajaro2.webp"
+        alt="Edificio residencial Molí Baix en Massamagrell con arquitectura moderna" />
+      <div class="absolute inset-0 bg-gradient-to-r from-on-background/70 via-on-background/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-on-background/30 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-40" id="hero-content">
+      <div class="max-w-2xl">
+        <span class="hero-anim-init label-md tracking-[0.25em] text-primary-fixed-dim mb-4 block font-bold">Obra Nueva en Massamagrell</span>
+        <h1 class="hero-anim-init text-4xl sm:text-5xl lg:text-7xl font-extrabold font-headline text-white mb-5">
+          Tu hogar en<br/>Massamagrell
+        </h1>
+        <p class="hero-anim-init text-xl lg:text-2xl text-white/70 max-w-xl font-light mb-10">
+          Donde la luz y la calma se encuentran.
+        </p>
+        <div class="flex flex-wrap items-center gap-4" data-hero-ctas>
+          <a href="/viviendas" class="hero-anim-init btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
+            Ver Viviendas
+          </a>
+          <a href="/#contacto" class="hero-anim-init border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+            Hablemos
+          </a>
+        </div>
       </div>
     </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-screen bg-surface-container-lowest shadow-2xl z-50 p-10 flex flex-col gap-8">
-      <button id="menu-close" class="self-end p-2" aria-label="Cerrar menú">
-        <span class="material-symbols-outlined text-3xl text-on-surface">close</span>
-      </button>
-      <a href="#inicio" class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">Inicio</a>
-      <a href="#calidades" class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">Calidades</a>
-      <a href="#viviendas" class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">Viviendas</a>
-      <a href="#planos" class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">Planos y Disponibilidad</a>
-      <a href="#contacto" class="text-xl font-headline font-bold text-on-background hover:text-primary transition-colors mobile-link">Contacto</a>
-      <a href="#contacto" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-semibold text-center mt-auto">Solicitar Info</a>
+    <!-- Scroll indicator (desktop only) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center" aria-hidden="true">
+      <span class="material-symbols-outlined text-white/40 text-2xl motion-safe:animate-bounce">expand_more</span>
     </div>
-  </nav>
+  </section>
 
 
-  <main>
-
-    <!-- ═══════════ HERO ═══════════ -->
-    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img id="hero-img" class="w-full h-full object-cover object-center scale-105"
-          src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_13.webp"
-          alt="Edificio residencial Molí Baix en Massamagrell con arquitectura moderna" />
-        <div class="absolute inset-0 bg-gradient-to-r from-on-background/70 via-on-background/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-on-background/30 to-transparent"></div>
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-40" id="hero-content">
-        <div class="max-w-2xl">
-          <span class="label-md tracking-[0.25em] text-primary-fixed-dim mb-6 block font-bold">Obra Nueva en Massamagrell</span>
-          <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold font-headline leading-[0.9] text-white tracking-tighter mb-6">
-            Tu hogar en<br/>Massamagrell
-          </h1>
-          <p class="text-xl lg:text-2xl text-white/70 max-w-lg mb-10 leading-relaxed font-light">
-            Donde la luz y la calma se encuentran.
-          </p>
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="#viviendas" class="btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
-              Ver Viviendas
-            </a>
-            <a href="#contacto" class="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
-              Descargar Folleto
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-        <span class="text-[0.6rem] text-white/50 uppercase tracking-[0.3em] font-semibold">Scroll</span>
-        <div class="w-px h-10 bg-white/30 animate-pulse"></div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ DISCOVER ═══════════ -->
-    <section id="descubre" class="py-16 lg:py-24 bg-surface-container-lowest">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-10 anim-reveal">
-          <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Descubre Molí Baix</span>
-          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background tracking-tighter mb-6">
-            Imagina despertar con la luz del sol, rodeado de campos de naranjos
-          </h2>
-          <p class="text-on-surface-variant text-lg leading-relaxed">
-            A solo 15 minutos de Valencia. Viviendas modernas, funcionales y llenas de luz. Un proyecto de 78 viviendas diseñado para maximizar tu bienestar, combinando sostenibilidad con elegancia contemporánea.
-          </p>
-        </div>
-
-        <!-- Feature cards -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-surface-container-high overflow-hidden rounded-2xl anim-reveal">
-          <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 hover:bg-primary-fixed group cursor-default">
-            <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">bedroom_parent</span>
-            <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">1, 2 y 3</h3>
-            <p class="label-md text-secondary tracking-widest">Dormitorios</p>
-          </div>
-          <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 hover:bg-primary-fixed group cursor-default">
-            <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">apartment</span>
-            <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background" data-count="78">0</h3>
-            <p class="label-md text-secondary tracking-widest">Viviendas</p>
-          </div>
-          <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 hover:bg-primary-fixed group cursor-default">
-            <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">garage_home</span>
-            <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">Garaje</h3>
-            <p class="label-md text-secondary tracking-widest">y Trastero</p>
-          </div>
-          <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 hover:bg-primary-fixed group cursor-default">
-            <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">energy_savings_leaf</span>
-            <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">Alta</h3>
-            <p class="label-md text-secondary tracking-widest">Eficiencia Energética</p>
-          </div>
-        </div>
-        <p class="text-xs text-secondary text-center mt-4 italic">* Garaje y trastero aplicable únicamente a determinadas viviendas; consulte la descripción de cada unidad para confirmar su inclusión.</p>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ LOCATION ═══════════ -->
-    <section id="ubicacion" class="py-16 lg:py-24 bg-surface-container overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-12 anim-reveal">
-          <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Ubicación Privilegiada</span>
-          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background tracking-tighter">Una ubicación que respira naturaleza y cercanía</h2>
-          <p class="text-on-surface-variant text-lg mt-4 max-w-2xl mx-auto">
-            Massamagrell ofrece el equilibrio perfecto entre la tranquilidad de una zona residencial y la comodidad de tener Valencia y todos los servicios a un paso.
-          </p>
-        </div>
-
-        <!-- Distance items - horizontal row -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-12 anim-reveal">
-          <div class="text-center">
-            <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-3">
-              <span class="material-symbols-outlined text-primary">directions_subway</span>
-            </div>
-            <h4 class="font-bold text-on-background text-sm">Metro</h4>
-            <p class="text-secondary text-sm">5 min andando</p>
-          </div>
-          <div class="text-center">
-            <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-3">
-              <span class="material-symbols-outlined text-primary">flight</span>
-            </div>
-            <h4 class="font-bold text-on-background text-sm">Aeropuerto</h4>
-            <p class="text-secondary text-sm">20 min en coche</p>
-          </div>
-          <div class="text-center">
-            <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-3">
-              <span class="material-symbols-outlined text-primary">beach_access</span>
-            </div>
-            <h4 class="font-bold text-on-background text-sm">Playa</h4>
-            <p class="text-secondary text-sm">8–10 min en coche</p>
-          </div>
-          <div class="text-center">
-            <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-3">
-              <span class="material-symbols-outlined text-primary">location_city</span>
-            </div>
-            <h4 class="font-bold text-on-background text-sm">Valencia Centro</h4>
-            <p class="text-secondary text-sm">20 min coche / 25 metro</p>
-          </div>
-          <div class="text-center col-span-2 sm:col-span-1">
-            <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mx-auto mb-3">
-              <span class="material-symbols-outlined text-primary">storefront</span>
-            </div>
-            <h4 class="font-bold text-on-background text-sm">Servicios</h4>
-            <p class="text-secondary text-sm">Colegios, comercios, salud</p>
-          </div>
-        </div>
-
-        <!-- Real Google Maps embed -->
-        <div class="rounded-2xl overflow-hidden editorial-shadow-lg anim-reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12336.5!2d-0.3297!3d39.5671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4cf980f1e1%3A0x4068e29c34ef0d0!2sMassamagrell%2C%20Valencia!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
-            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="w-full h-[350px] lg:h-[450px]"
-            title="Ubicación de Molí Baix en Massamagrell, Valencia"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ GALLERY ═══════════ -->
-    <section id="galeria" class="py-16 lg:py-24 bg-surface-container-lowest overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-10 anim-reveal">
-        <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Galería</span>
-        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background tracking-tighter">Conoce cada rincón</h2>
-      </div>
-
-      <!-- Main Swiper -->
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="swiper gallery-main rounded-2xl overflow-hidden editorial-shadow-lg mb-6">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_1.webp" alt="Fachada principal Molí Baix" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_2.webp" alt="Salón luminoso con grandes ventanales" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_3.webp" alt="Cocina moderna equipada" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_4.webp" alt="Dormitorio principal con luz natural" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_5.webp" alt="Baño con acabados premium" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_6.webp" alt="Terraza con vistas" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_8-1.webp" alt="Zona comunitaria" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_9.webp" alt="Detalle de acabados interiores" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_10.webp" alt="Vista exterior del edificio" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_11.webp" alt="Espacio de convivencia" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_13.webp" alt="Perspectiva nocturna" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_14.webp" alt="Jardín comunitario" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_15.webp" alt="Piscina comunitaria" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_16.webp" alt="Zona ajardinada" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_17.webp" alt="Detalle arquitectónico" /></div>
-            <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_18.webp" alt="Vista panorámica" /></div>
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-
-        <!-- Thumbs -->
-        <div class="swiper gallery-thumbs">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_1.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_2.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_3.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_4.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_5.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_6.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_8-1.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_9.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_10.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_11.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_13.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_14.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_15.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_16.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_17.webp" alt="" /></div>
-            <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_18.webp" alt="" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ CALIDADES (Qualities) ═══════════ -->
-    <section id="calidades" class="py-16 lg:py-24 bg-surface-container">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Images -->
-          <div class="relative anim-reveal">
-            <div class="rounded-2xl overflow-hidden editorial-shadow-lg">
-              <img class="w-full aspect-[4/3] object-cover"
-                src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_3.webp"
-                alt="Interior de alta calidad con materiales premium" />
-            </div>
-            <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-10 w-2/5 rounded-xl overflow-hidden border-8 border-surface-container shadow-2xl hidden sm:block">
-              <img class="w-full aspect-square object-cover"
-                src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_5.webp"
-                alt="Detalle de acabados de baño con Porcelanosa" />
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="anim-reveal">
-            <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Calidades y Acabados</span>
-            <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6 tracking-tighter">Mucho más que una vivienda</h2>
-            <p class="text-on-surface-variant leading-relaxed mb-10 text-lg">
-              Vivienda práctica con distribuciones inteligentes, materiales de alta calidad y eficiencia energética superior. Equipamiento y materiales de marcas líderes: Porcelanosa, Pamesa y Balay.
-            </p>
-
-            <!-- Features grid -->
-            <div class="grid grid-cols-2 gap-6 mb-10 anim-reveal">
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">fitness_center</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Gimnasio Equipado</h4>
-                  <p class="text-secondary text-xs">Espacio exclusivo de salud y bienestar</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">heat_pump</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Aerotermia</h4>
-                  <p class="text-secondary text-xs">ACS comunitaria de alta eficiencia</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">ac_unit</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Climatización</h4>
-                  <p class="text-secondary text-xs">Control térmico óptimo en toda la vivienda</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">balcony</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Terrazas</h4>
-                  <p class="text-secondary text-xs">Espacios exteriores para disfrutar</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">electric_car</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Movilidad Sostenible</h4>
-                  <p class="text-secondary text-xs">Parking bici y preinstalación coche eléctrico</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">lightbulb</span>
-                <div>
-                  <h4 class="font-bold text-sm text-on-background">Iluminación LED</h4>
-                  <p class="text-secondary text-xs">Iluminación sostenible y eficiente</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Extra specs -->
-            <div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow space-y-3">
-              <h4 class="font-bold text-on-background flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-lg">kitchen</span>
-                Cocina Completa
-              </h4>
-              <p class="text-secondary text-sm leading-relaxed">
-                Electrodomésticos integrados: frigorífico, placa de inducción, horno, microondas y lavavajillas. Muebles altos y bajos con cierre suave, encimera Silestone e iluminación LED bajo mueble.
-              </p>
-              <h4 class="font-bold text-on-background flex items-center gap-2 pt-3">
-                <span class="material-symbols-outlined text-primary text-lg">bathtub</span>
-                Baños Premium
-              </h4>
-              <p class="text-secondary text-sm leading-relaxed">
-                Sanitarios Porcelanosa, platos de ducha de resina con mampara fija, grifería efecto lluvia. Dos baños por vivienda.
-              </p>
-            </div>
-
-            <a href="#contacto" class="inline-flex btn-primary-gradient text-on-primary px-8 py-3 rounded-full font-semibold text-sm mt-8 transition-all active:scale-95 hover:shadow-lg">
-              Ver Calidades y Acabados
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ VIVIENDAS (Housing Types) ═══════════ -->
-    <section id="viviendas" class="py-16 lg:py-24 bg-surface-container-lowest">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-10 anim-reveal">
-          <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Viviendas</span>
-          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background tracking-tighter mb-4">Encuentra tu hogar ideal</h2>
-          <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Desde lofts en planta baja hasta áticos con solárium privado. Múltiples configuraciones para adaptarse a tu estilo de vida.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
-
-          <!-- Loft -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_4.webp" alt="Loft en planta baja" />
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">Loft</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 145.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dormitorio + 1 baño
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 75 m² – 134 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 10,75 – 23,41 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">layers</span> Planta baja
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-
-          <!-- Ático -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden relative">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_6.webp" alt="Ático con solárium" />
-              <span class="absolute top-3 right-3 label-md bg-primary text-on-primary px-3 py-1 rounded-full text-[0.6rem]">Popular</span>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">Ático</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 191.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 1, 2 o 3 dormitorios
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 93 m² – 226 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 36 – 107 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">layers</span> Planta 4ª + solárium privado
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-
-          <!-- 3 Dorm -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_2.webp" alt="Vivienda de 3 dormitorios" />
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">3 Dormitorios</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 254.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 122 m² – 252 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 5,6 – 136 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 4ª
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-
-          <!-- 3 Dorm Esquinero -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_9.webp" alt="Vivienda esquinera exterior" />
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">3 Dorm. Esquinero</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 260.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 129 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 7,65 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">explore</span> Orientación Sur
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-
-          <!-- 2 Dorm -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_10.webp" alt="Vivienda de 2 dormitorios" />
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">2 Dormitorios</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 209.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 2 dorm. + 2 baños
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 88 m² – 189 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 4,62 – 105 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-
-          <!-- 1 Dorm -->
-          <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl transition-all duration-300">
-            <div class="overflow-hidden">
-              <img class="w-full h-52 object-cover img-zoom" src="https://molibaix.com/wp-content/uploads/2026/02/VIBO_massamagrell_gallery_11.webp" alt="Vivienda de 1 dormitorio" />
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-xl font-extrabold font-headline text-on-background">1 Dormitorio</h3>
-                <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 165.000€</span>
-              </div>
-              <div class="space-y-2 mb-4">
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dorm. + 1 baño
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">straighten</span> 61 m² – 116 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 3,8 – 58 m²
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary">
-                  <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
-                </div>
-              </div>
-              <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ PLANOS (Floor Plans Teaser) ═══════════ -->
-    <section id="planos" class="py-16 lg:py-24 bg-surface-container relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-full">
-        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 -right-20 w-72 h-72 bg-primary-fixed/30 rounded-full blur-3xl"></div>
-      </div>
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="anim-reveal">
-            <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Planos y Disponibilidad</span>
-            <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6 tracking-tighter">Consulta tu vivienda disponible</h2>
-            <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
-              Explora los planos de cada tipología y consulta la disponibilidad en tiempo real. Nuestro equipo comercial te guiará en la elección perfecta para ti y tu familia.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a href="#contacto" class="btn-primary-gradient text-on-primary px-8 py-3.5 rounded-full font-semibold transition-all active:scale-95 hover:shadow-lg">
-                Consultar Disponibilidad
-              </a>
-              <a href="#contacto" class="border-2 border-outline-variant/30 text-on-background px-8 py-3.5 rounded-full font-semibold transition-all hover:bg-primary-fixed/30 active:scale-95">
-                Descargar Planos
-              </a>
-            </div>
-          </div>
-          <div class="anim-reveal">
-            <div class="relative">
-              <div class="bg-white rounded-2xl p-8 editorial-shadow-lg border border-surface-container-high/50">
-                <div class="grid grid-cols-3 gap-4 text-center">
-                  <div class="p-4 rounded-xl bg-surface-container transition-colors hover:bg-primary-fixed">
-                    <p class="text-3xl font-extrabold font-headline text-primary">6</p>
-                    <p class="label-md text-secondary mt-1">Tipologías</p>
-                  </div>
-                  <div class="p-4 rounded-xl bg-surface-container transition-colors hover:bg-primary-fixed">
-                    <p class="text-3xl font-extrabold font-headline text-primary" data-count="78">0</p>
-                    <p class="label-md text-secondary mt-1">Viviendas</p>
-                  </div>
-                  <div class="p-4 rounded-xl bg-surface-container transition-colors hover:bg-primary-fixed">
-                    <p class="text-3xl font-extrabold font-headline text-primary">4</p>
-                    <p class="label-md text-secondary mt-1">Plantas</p>
-                  </div>
-                </div>
-                <div class="mt-6 pt-6 border-t border-surface-container-high">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-secondary">Superficie desde</span>
-                    <span class="font-bold text-on-background">61 m²</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm mt-2">
-                    <span class="text-secondary">Superficie hasta</span>
-                    <span class="font-bold text-on-background">252 m²</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm mt-2">
-                    <span class="text-secondary">Precio desde</span>
-                    <span class="font-bold text-primary">145.000€</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ BRAND MISSION ═══════════ -->
-    <section class="py-16 lg:py-24 bg-on-background relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/8 skew-x-12 translate-x-1/4"></div>
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center anim-reveal">
-        <span class="material-symbols-outlined text-primary text-5xl mb-6 block animate-float">auto_awesome</span>
-        <h2 class="text-3xl lg:text-4xl font-extrabold font-headline text-white tracking-tighter mb-6 leading-tight">
-          Creamos hogares que inspiran, donde la calidad de vida es la prioridad.
-        </h2>
-        <p class="text-inverse-on-surface/50 text-lg mb-8">Un proyecto de VIBO Investment</p>
-        <div class="w-16 h-px bg-primary mx-auto"></div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════ CONTACT ═══════════ -->
-    <section id="contacto" class="py-16 lg:py-24 bg-surface-container">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          <!-- Left: Info -->
-          <div class="anim-reveal">
-            <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Contacto</span>
-            <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6 tracking-tighter">¿Quieres saber más?</h2>
-            <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
-              Nuestro equipo comercial estará encantado de asesorarte y resolver todas tus dudas sobre Molí Baix.
-            </p>
-
-            <div class="space-y-6 mb-10">
-              <div class="flex gap-4 items-center">
-                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
-                  <span class="material-symbols-outlined text-primary">mail</span>
-                </div>
-                <div>
-                  <p class="label-md text-secondary mb-0.5">Email</p>
-                  <a href="mailto:comercial@viboinvestment.com" class="font-bold text-on-background hover:text-primary transition-colors">comercial@viboinvestment.com</a>
-                </div>
-              </div>
-              <div class="flex gap-4 items-center">
-                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
-                  <span class="material-symbols-outlined text-primary">call</span>
-                </div>
-                <div>
-                  <p class="label-md text-secondary mb-0.5">Teléfono</p>
-                  <a href="tel:+34620197665" class="font-bold text-on-background hover:text-primary transition-colors">(+34) 620 197 665</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Download CTAs -->
-            <div class="space-y-3">
-              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white hover:bg-primary-fixed transition-colors group editorial-shadow">
-                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">download</span>
-                <div>
-                  <p class="font-bold text-sm text-on-background">Descargar Folleto</p>
-                  <p class="text-xs text-secondary">PDF del proyecto completo</p>
-                </div>
-                <span class="material-symbols-outlined text-secondary ml-auto">chevron_right</span>
-              </a>
-              <a href="#" class="flex items-center gap-3 p-4 rounded-xl bg-white hover:bg-primary-fixed transition-colors group editorial-shadow">
-                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">description</span>
-                <div>
-                  <p class="font-bold text-sm text-on-background">Descargar Memoria de Calidades</p>
-                  <p class="text-xs text-secondary">Especificaciones técnicas y materiales</p>
-                </div>
-                <span class="material-symbols-outlined text-secondary ml-auto">chevron_right</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Form -->
-          <div class="anim-reveal">
-            <div class="bg-white rounded-2xl p-8 lg:p-10 editorial-shadow-lg">
-              <h3 class="text-xl font-extrabold font-headline text-on-background mb-6">Solicita información</h3>
-              <form id="contact-form" class="space-y-5">
-                <div>
-                  <label class="label-md text-secondary mb-2 block">Nombre</label>
-                  <input type="text" required placeholder="Tu nombre completo"
-                    class="w-full bg-surface-container-low/50 border-0 border-b-2 border-outline-variant/30 p-4 text-on-background focus:ring-0 focus:border-primary transition-all placeholder:text-secondary/50 rounded-none font-body" />
-                </div>
-                <div>
-                  <label class="label-md text-secondary mb-2 block">Teléfono Móvil</label>
-                  <input type="tel" placeholder="Tu teléfono"
-                    class="w-full bg-surface-container-low/50 border-0 border-b-2 border-outline-variant/30 p-4 text-on-background focus:ring-0 focus:border-primary transition-all placeholder:text-secondary/50 rounded-none font-body" />
-                </div>
-                <div>
-                  <label class="label-md text-secondary mb-2 block">Email</label>
-                  <input type="email" required placeholder="Tu email"
-                    class="w-full bg-surface-container-low/50 border-0 border-b-2 border-outline-variant/30 p-4 text-on-background focus:ring-0 focus:border-primary transition-all placeholder:text-secondary/50 rounded-none font-body" />
-                </div>
-                <div>
-                  <label class="label-md text-secondary mb-2 block">Mensaje</label>
-                  <textarea rows="4" placeholder="¿En qué podemos ayudarte?"
-                    class="w-full bg-surface-container-low/50 border-0 border-b-2 border-outline-variant/30 p-4 text-on-background focus:ring-0 focus:border-primary transition-all placeholder:text-secondary/50 rounded-none font-body resize-none"></textarea>
-                </div>
-                <div class="flex items-start gap-3">
-                  <input type="checkbox" required id="privacy" class="mt-1 rounded border-outline-variant text-primary focus:ring-primary" />
-                  <label for="privacy" class="text-xs text-secondary leading-relaxed">
-                    Acepto el tratamiento de mis datos personales de acuerdo con la <a href="#" class="text-primary hover:underline">Política de Privacidad</a> y el <a href="#" class="text-primary hover:underline">Aviso Legal</a>.
-                  </label>
-                </div>
-                <button type="submit" class="w-full btn-primary-gradient text-on-primary py-4 rounded-full font-bold text-lg transition-all hover:shadow-xl active:scale-[0.98]">
-                  Enviar Solicitud
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="bg-on-background text-inverse-on-surface py-16">
+  <!-- ═══════════ DISCOVER ═══════════ -->
+  <section id="descubre" class="py-16 lg:py-24 bg-surface-container-lowest">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-        <div>
-          <div class="text-xl font-extrabold text-white mb-6 font-headline tracking-tight">Molí Baix</div>
-          <p class="text-inverse-on-surface/50 text-sm leading-relaxed">
-            Elevando el estándar residencial en Valencia a través del diseño consciente y la excelencia arquitectónica.
-          </p>
-          <p class="text-inverse-on-surface/30 text-xs mt-4">Un proyecto de VIBO Investment</p>
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Descubre Molí Baix</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Imagina despertar con la luz del sol, rodeado de campos de naranjos
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          A solo 15 minutos de Valencia. Viviendas modernas, funcionales y llenas de luz. Un proyecto de 78 viviendas diseñado para maximizar tu bienestar, combinando sostenibilidad con elegancia contemporánea.
+        </p>
+      </div>
+
+      <!-- Feature cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-surface-container-high overflow-hidden rounded-2xl anim-reveal">
+        <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 group">
+          <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">bedroom_parent</span>
+          <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">1, 2 y 3</h3>
+          <p class="label-md text-secondary tracking-widest">Dormitorios</p>
         </div>
-        <div>
-          <h4 class="label-md tracking-widest text-white/70 mb-6">Explorar</h4>
-          <ul class="space-y-3 text-sm text-inverse-on-surface/50">
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#inicio">Inicio</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#calidades">Calidades</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#viviendas">Viviendas</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#planos">Planos y Disponibilidad</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#contacto">Contacto</a></li>
-          </ul>
+        <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 group">
+          <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">apartment</span>
+          <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background tabular-nums" data-count="78" aria-label="78 viviendas">0</h3>
+          <p class="label-md text-secondary tracking-widest">Viviendas</p>
         </div>
-        <div>
-          <h4 class="label-md tracking-widest text-white/70 mb-6">Legal</h4>
-          <ul class="space-y-3 text-sm text-inverse-on-surface/50">
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#">Política de Privacidad</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#">Aviso Legal</a></li>
-            <li><a class="hover:text-primary-fixed-dim transition-colors" href="#">Cookies</a></li>
-          </ul>
+        <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 group">
+          <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">garage_home</span>
+          <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">Garaje</h3>
+          <p class="label-md text-secondary tracking-widest">y Trastero</p>
         </div>
-        <div>
-          <h4 class="label-md tracking-widest text-white/70 mb-6">Contacto</h4>
-          <p class="text-inverse-on-surface/50 text-sm mb-1">Massamagrell, Valencia</p>
-          <a href="mailto:comercial@viboinvestment.com" class="text-inverse-on-surface/50 text-sm hover:text-primary-fixed-dim transition-colors block mb-3">comercial@viboinvestment.com</a>
-          <a href="tel:+34620197665" class="text-primary-fixed-dim font-bold">(+34) 620 197 665</a>
+        <div class="bg-surface-container-lowest p-8 lg:p-12 text-center transition-all duration-300 group">
+          <span class="material-symbols-outlined text-4xl text-primary mb-4 block group-hover:scale-110 transition-transform duration-300">energy_savings_leaf</span>
+          <h3 class="text-2xl lg:text-3xl font-extrabold font-headline mb-1 text-on-background">Alta</h3>
+          <p class="label-md text-secondary tracking-widest">Eficiencia Energética</p>
         </div>
       </div>
-      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-xs tracking-wide text-inverse-on-surface/30">&copy; 2025 Molí Baix. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a class="text-inverse-on-surface/30 hover:text-primary-fixed-dim transition-colors" href="#" aria-label="Web">
-            <span class="material-symbols-outlined text-xl">public</span>
-          </a>
-          <a class="text-inverse-on-surface/30 hover:text-primary-fixed-dim transition-colors" href="#" aria-label="Compartir">
-            <span class="material-symbols-outlined text-xl">share</span>
+      <p class="text-xs text-secondary text-center mt-4 italic">* Garaje y trastero aplicable únicamente a determinadas viviendas; consulte la descripción de cada unidad para confirmar su inclusión.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ LOCATION ═══════════ -->
+  <section id="ubicacion" class="py-16 lg:py-24 bg-surface-container overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Ubicación Privilegiada</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">Una ubicación que respira naturaleza y cercanía</h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">
+          Massamagrell ofrece el equilibrio perfecto entre la tranquilidad de una zona residencial y la comodidad de tener Valencia y todos los servicios a un paso.
+        </p>
+      </div>
+
+      <!-- Distance items - horizontal row -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-12 anim-reveal">
+        <div class="text-center group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-3 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary">directions_subway</span>
+          </div>
+          <h4 class="font-bold text-on-background text-sm">Metro</h4>
+          <p class="text-secondary text-sm">5 min andando</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-3 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary">flight</span>
+          </div>
+          <h4 class="font-bold text-on-background text-sm">Aeropuerto</h4>
+          <p class="text-secondary text-sm">20 min en coche</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-3 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary">beach_access</span>
+          </div>
+          <h4 class="font-bold text-on-background text-sm">Playa</h4>
+          <p class="text-secondary text-sm">8–10 min en coche</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-3 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary">location_city</span>
+          </div>
+          <h4 class="font-bold text-on-background text-sm">Valencia Centro</h4>
+          <p class="text-secondary text-sm">20 min coche / 25 metro</p>
+        </div>
+        <div class="text-center col-span-2 sm:col-span-1 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mx-auto mb-3 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary">storefront</span>
+          </div>
+          <h4 class="font-bold text-on-background text-sm">Servicios</h4>
+          <p class="text-secondary text-sm">Colegios, comercios, salud</p>
+        </div>
+      </div>
+
+      <!-- Real Google Maps embed -->
+      <div class="rounded-2xl overflow-hidden editorial-shadow-lg anim-reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12336.5!2d-0.3297!3d39.5671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4cf980f1e1%3A0x4068e29c34ef0d0!2sMassamagrell%2C%20Valencia!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+          width="1200" height="450" style="border:0;" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-[350px] lg:h-[450px]"
+          title="Ubicación de Molí Baix en Massamagrell, Valencia"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ GALLERY ═══════════ -->
+  <section id="galeria" class="py-16 lg:py-24 bg-surface-container-lowest overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-10 anim-reveal">
+      <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Galería</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">Conoce cada rincón</h2>
+      <div class="divider-accent mb-0"></div>
+    </div>
+
+    <!-- Main Swiper -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="swiper gallery-main rounded-2xl overflow-hidden editorial-shadow-lg mb-6">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/plano-exterior-frontal.webp" alt="Fachada principal Molí Baix" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/salon-ventanal.webp" alt="Salón luminoso con grandes ventanales" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/cocina.webp" alt="Cocina moderna equipada" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/dormitorio-matrimonio.webp" alt="Dormitorio principal con luz natural" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/bano.webp" alt="Baño con acabados premium" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/jardines.webp" alt="Zonas comunes exteriores" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/gimnasio.webp" alt="Gimnasio comunitario" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/cocina-recibidor.webp" alt="Cocina abierta con comedor" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/exterior-esquina.webp" alt="Vista exterior del edificio" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/salon.webp" alt="Salón comedor" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/plano-exteriror-pajaro2.webp" alt="Vista aérea al atardecer" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/cocina-salon.webp" alt="Cocina con isla y salón" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/dormitorio-doble.webp" alt="Dormitorio doble" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/dormitorio-individual.webp" alt="Dormitorio individual" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/ducha-bano.webp" alt="Ducha con acabados premium" /></div>
+          <div class="swiper-slide"><img class="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover" src="/images/plano-exteriror-pajaro.webp" alt="Vista aérea panorámica" /></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+      <!-- Thumbs -->
+      <div class="swiper gallery-thumbs">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/plano-exterior-frontal.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/salon-ventanal.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/cocina.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/dormitorio-matrimonio.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/bano.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/jardines.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/gimnasio.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/cocina-recibidor.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/exterior-esquina.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/salon.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/plano-exteriror-pajaro2.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/cocina-salon.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/dormitorio-doble.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/dormitorio-individual.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/ducha-bano.webp" alt="" /></div>
+          <div class="swiper-slide cursor-pointer"><img class="w-full h-16 lg:h-20 object-cover rounded-lg gallery-thumb" src="/images/plano-exteriror-pajaro.webp" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ CALIDADES TEASER ═══════════ -->
+  <section id="calidades" class="py-16 lg:py-24 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Images -->
+        <div class="relative anim-reveal">
+          <div class="rounded-2xl overflow-hidden editorial-shadow-lg">
+            <img class="w-full aspect-[4/3] object-cover" loading="lazy"
+              src="/images/cocina.webp"
+              alt="Interior de alta calidad con materiales premium" />
+          </div>
+          <div class="absolute -bottom-6 -right-4 lg:-bottom-10 lg:-right-8 w-2/5 rounded-xl overflow-hidden border-8 border-surface-container shadow-2xl hidden sm:block">
+            <img class="w-full aspect-square object-cover" loading="lazy"
+              src="/images/ducha-bano.webp"
+              alt="Detalle de acabados de baño con Porcelanosa" />
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="anim-reveal flex flex-col justify-center">
+          <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Calidades y Acabados</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">Mucho más que una vivienda</h2>
+          <div class="divider-accent mb-6"></div>
+          <p class="text-on-surface-variant mb-10 text-lg">
+            Vivienda práctica con distribuciones inteligentes, materiales de alta calidad y eficiencia energética superior. Equipamiento y materiales de marcas líderes: Porcelanosa, Pamesa y Balay.
+          </p>
+
+          <!-- Features grid -->
+          <div class="grid grid-cols-2 gap-6 mb-10 anim-reveal">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">fitness_center</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Gimnasio Equipado</h4>
+                <p class="text-secondary text-xs">Espacio exclusivo de salud y bienestar</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">heat_pump</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Aerotermia</h4>
+                <p class="text-secondary text-xs">ACS comunitaria de alta eficiencia</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">ac_unit</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Climatización</h4>
+                <p class="text-secondary text-xs">Control térmico óptimo en toda la vivienda</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">balcony</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Terrazas</h4>
+                <p class="text-secondary text-xs">Espacios exteriores para disfrutar</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">electric_car</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Movilidad Sostenible</h4>
+                <p class="text-secondary text-xs">Parking bici y preinstalación coche eléctrico</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-xl mt-0.5">lightbulb</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Iluminación LED</h4>
+                <p class="text-secondary text-xs">Iluminación sostenible y eficiente</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="/calidades" class="self-start inline-flex btn-primary-gradient text-on-primary px-8 py-3.5 rounded-full font-semibold text-sm mt-2 transition-all active:scale-95 hover:shadow-xl">
+            Ver Calidades y Acabados
           </a>
         </div>
       </div>
     </div>
-  </footer>
+  </section>
 
 
-  <!-- ═══════════ SCRIPTS ═══════════ -->
-  <script>
-    import gsap from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    import Swiper from 'swiper';
-    import { Navigation, Thumbs, Autoplay } from 'swiper/modules';
-    import 'swiper/css';
-    import 'swiper/css/navigation';
-    import 'swiper/css/thumbs';
+  <!-- ═══════════ VIVIENDAS (Housing Types) ═══════════ -->
+  <section id="viviendas" class="py-16 lg:py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Viviendas</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">Encuentra tu hogar ideal</h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Desde lofts en planta baja hasta áticos con solárium privado. Múltiples configuraciones para adaptarse a tu estilo de vida.</p>
+      </div>
 
-    gsap.registerPlugin(ScrollTrigger);
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
 
-    /* ── Gallery Swiper ── */
-    const thumbsSwiper = new Swiper('.gallery-thumbs', {
-      modules: [Autoplay],
-      spaceBetween: 10,
-      slidesPerView: 4,
-      watchSlidesProgress: true,
-      breakpoints: {
-        640: { slidesPerView: 5 },
-        1024: { slidesPerView: 7 },
-      },
+        <!-- Loft -->
+        <a href="/planos?dorm=1&planta=0" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/salon-ventanal.webp" alt="Loft en planta baja" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">Loft</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 145.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dormitorio + 1 baño
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 75 m² – 134 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 10,75 – 23,41 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Planta baja
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- Ático -->
+        <a href="/planos?planta=4" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden relative">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/plano-exteriror-pajaro.webp" alt="Vista aérea del complejo con terrazas y solárium" />
+            <span class="absolute top-3 right-3 label-md bg-primary text-on-primary px-3 py-1 rounded-full">Popular</span>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">Ático</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 191.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1, 2 o 3 dormitorios
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 93 m² – 226 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 36 – 107 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Planta 4ª + solárium privado
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 3 Dorm -->
+        <a href="/planos?dorm=3" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/salon.webp" alt="Vivienda de 3 dormitorios" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">3 Dormitorios</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 254.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 122 m² – 252 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 5,6 – 136 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 4ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 3 Dorm Esquinero -->
+        <a href="/planos?dorm=3" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/exterior-esquina.webp" alt="Vivienda esquinera exterior" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">3 Dorm. Esquinero</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 260.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 3 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 129 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 7,65 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">explore</span> Orientación Sur
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 2 Dorm -->
+        <a href="/planos?dorm=2" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/cocina-salon.webp" alt="Vivienda de 2 dormitorios" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">2 Dormitorios</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 209.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 2 dorm. + 2 baños
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 88 m² – 189 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 4,62 – 105 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+
+        <!-- 1 Dorm -->
+        <a href="/planos?dorm=1" class="block bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group hover:shadow-xl card-lift">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/dormitorio-matrimonio.webp" alt="Dormitorio luminoso de 1 dormitorio" />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-lg font-extrabold font-headline text-on-background">1 Dormitorio</h3>
+              <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 165.000€</span>
+            </div>
+            <div class="space-y-2 mb-4">
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">bed</span> 1 dorm. + 1 baño
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">straighten</span> 61 m² – 116 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">balcony</span> Terraza: 3,8 – 58 m²
+              </div>
+              <div class="flex items-center gap-2 text-sm text-secondary">
+                <span class="material-symbols-outlined text-primary text-base">layers</span> Plantas 1ª – 3ª
+              </div>
+            </div>
+            <p class="text-[0.65rem] text-secondary italic">10% de IVA no incluido</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-12 anim-reveal">
+        <a href="/viviendas" class="inline-flex btn-primary-gradient text-on-primary px-8 py-3.5 rounded-full font-semibold text-sm transition-all active:scale-95 hover:shadow-xl">
+          Ver Todas las Viviendas
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ PLANOS (Floor Plans Teaser) ═══════════ -->
+  <section id="planos" class="py-16 lg:py-24 bg-surface-container relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 -right-20 w-72 h-72 bg-primary-fixed/30 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div class="anim-reveal">
+          <span class="label-md tracking-[0.25em] text-primary mb-4 font-bold block">Planos y Disponibilidad</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">Consulta tu vivienda disponible</h2>
+          <p class="text-on-surface-variant text-lg mb-5">
+            Explora los planos de cada tipología y consulta la disponibilidad en tiempo real.
+          </p>
+          <a href="/planos" class="inline-flex items-center gap-2 btn-primary-gradient text-on-primary px-8 py-3.5 rounded-full font-semibold transition-all active:scale-95 hover:shadow-xl">
+            Ver Planos y Disponibilidad
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+        </div>
+        <div class="anim-reveal">
+          <div class="bg-white rounded-2xl p-6 lg:p-8 editorial-shadow-lg border border-surface-container-high/40">
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="p-3 lg:p-4 rounded-xl bg-surface-container transition-colors">
+                <p class="text-2xl lg:text-3xl font-extrabold font-headline text-primary">6</p>
+                <p class="label-md text-secondary mt-1">Tipologías</p>
+              </div>
+              <div class="p-3 lg:p-4 rounded-xl bg-surface-container transition-colors">
+                <p class="text-2xl lg:text-3xl font-extrabold font-headline text-primary tabular-nums" data-count="78" aria-label="78 viviendas">0</p>
+                <p class="label-md text-secondary mt-1">Viviendas</p>
+              </div>
+              <div class="p-3 lg:p-4 rounded-xl bg-surface-container transition-colors">
+                <p class="text-2xl lg:text-3xl font-extrabold font-headline text-primary">4</p>
+                <p class="label-md text-secondary mt-1">Plantas</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-surface-container-high space-y-2">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-secondary">Superficie</span>
+                <span class="font-bold text-on-background">61 – 252 m²</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-secondary">Precio desde</span>
+                <span class="font-bold text-primary">145.000€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ BRAND MISSION ═══════════ -->
+  <section class="py-16 lg:py-24 bg-on-background relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/8 skew-x-12 translate-x-1/4"></div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center anim-reveal">
+      <span class="material-symbols-outlined text-primary text-5xl mb-6 block animate-float">auto_awesome</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-white mb-6">
+        Creamos hogares que inspiran, donde la calidad de vida es la prioridad.
+      </h2>
+      <p class="text-inverse-on-surface/50 text-lg mb-8">Un proyecto de VIBO Investment</p>
+      <div class="divider-accent mx-auto"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section id="contacto" class="bg-on-background">
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[680px]">
+
+      <!-- ── Left: editorial image panel ── -->
+      <div class="relative overflow-hidden min-h-[420px] lg:min-h-0">
+        <img src="/images/exterior-esquina.webp" alt="Edificio Molí Baix"
+          class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-br from-on-background/85 via-on-background/55 to-on-background/85"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-on-background/70 to-transparent"></div>
+
+        <div class="relative z-10 h-full flex flex-col justify-between p-10 lg:p-16">
+          <div>
+            <span class="label-md tracking-[0.3em] text-primary-fixed-dim font-bold">— Contacto</span>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-headline text-white mt-5">
+              Hablemos de<br/>tu nuevo hogar
+            </h2>
+            <p class="text-white/70 text-lg font-light mt-6 max-w-md">
+              Nuestro equipo comercial te asesora sin compromiso. Reservas, visitas y memoria de calidades a un mensaje de distancia.
+            </p>
+          </div>
+
+          <div class="mt-12 space-y-5">
+            <a href="mailto:comercial@viboinvestment.com" class="group flex items-center gap-5">
+              <div class="w-14 h-14 rounded-full bg-white/8 backdrop-blur-md border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                <span class="material-symbols-outlined text-white text-xl">mail</span>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-white/45 font-bold mb-0.5">Email</p>
+                <p class="text-white font-semibold text-base group-hover:text-primary-fixed-dim transition-colors">comercial@viboinvestment.com</p>
+              </div>
+            </a>
+            <a href="tel:+34620197665" class="group flex items-center gap-5">
+              <div class="w-14 h-14 rounded-full bg-white/8 backdrop-blur-md border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                <span class="material-symbols-outlined text-white text-xl">call</span>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-white/45 font-bold mb-0.5">Teléfono</p>
+                <p class="text-white font-semibold text-base group-hover:text-primary-fixed-dim transition-colors">(+34) 620 197 665</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Right: form panel ── -->
+      <div class="bg-surface-container-lowest flex flex-col justify-center p-10 sm:p-14 lg:p-16">
+        <div class="w-full max-w-md mx-auto">
+          <span class="label-md tracking-[0.3em] text-primary font-bold">— Solicita información</span>
+          <h3 class="text-2xl lg:text-3xl font-extrabold font-headline text-on-background mt-4 mb-10">
+            Cuéntanos qué buscas y te respondemos en menos de 24h.
+          </h3>
+
+          <form id="contact-form" class="space-y-7" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="group">
+                <label for="cf-name" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Nombre</label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"
+                  class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors duration-300" />
+              </div>
+              <div class="group">
+                <label for="cf-tel" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Teléfono</label>
+                <input id="cf-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="+34 ___ ___ ___"
+                  class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors duration-300" />
+              </div>
+            </div>
+            <div class="group">
+              <label for="cf-email" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Email</label>
+              <input id="cf-email" name="email" type="email" required autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" placeholder="tu@email.com"
+                class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors duration-300" />
+            </div>
+            <div class="group">
+              <label for="cf-message" class="block text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">Mensaje</label>
+              <textarea id="cf-message" name="message" rows="3" placeholder="¿En qué podemos ayudarte?"
+                class="w-full bg-transparent border-0 border-b border-on-background/15 focus:border-primary outline-none py-2.5 text-on-background placeholder:text-on-surface-variant/40 transition-colors duration-300 resize-none"></textarea>
+            </div>
+
+            <div class="flex items-start gap-3 pt-2">
+              <input type="checkbox" required id="privacy" name="privacy" class="mt-1 accent-primary" />
+              <label for="privacy" class="text-xs text-secondary">
+                Acepto la <a href="/privacidad" class="text-primary hover:underline font-semibold">Política de Privacidad</a> y el <a href="/aviso-legal" class="text-primary hover:underline font-semibold">Aviso Legal</a>.
+              </label>
+            </div>
+
+            <button type="submit" class="group w-full flex items-center justify-center gap-3 btn-primary-gradient text-on-primary py-4 rounded-full font-bold text-base transition-all hover:shadow-2xl active:scale-[0.98]">
+              Enviar Solicitud
+              <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+            <p id="contact-form-status" role="status" aria-live="polite" class="text-sm text-primary font-semibold min-h-[1.25rem]"></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+
+<!-- ═══════════ PAGE-SPECIFIC SCRIPTS ═══════════ -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import Swiper from 'swiper';
+  import { Navigation, Thumbs, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/thumbs';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Gallery Swiper ── */
+  const thumbsSwiper = new Swiper('.gallery-thumbs', {
+    modules: [Autoplay],
+    spaceBetween: 10,
+    slidesPerView: 4,
+    watchSlidesProgress: true,
+    breakpoints: {
+      640: { slidesPerView: 5 },
+      1024: { slidesPerView: 7 },
+    },
+  });
+
+  new Swiper('.gallery-main', {
+    modules: [Navigation, Thumbs, Autoplay],
+    spaceBetween: 0,
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: { swiper: thumbsSwiper },
+  });
+
+  /* ── Hero entrance animation ── */
+  const heroContent = document.getElementById('hero-content');
+  if (heroContent && !prefersReducedMotion) {
+    const label = heroContent.querySelector('.label-md');
+    const heading = heroContent.querySelector('h1');
+    const desc = heroContent.querySelector('p');
+    const ctas = heroContent.querySelectorAll('[data-hero-ctas] > a');
+    const tl = gsap.timeline({ delay: 0.2 });
+    if (label) tl.fromTo(label, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
+    if (heading) tl.fromTo(heading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.35');
+    if (desc) tl.fromTo(desc, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+    if (ctas.length) tl.fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.12, ease: 'power3.out' }, '-=0.35');
+  } else if (heroContent) {
+    heroContent.querySelectorAll('.hero-anim-init').forEach((el) => (el as HTMLElement).style.opacity = '1');
+  }
+
+  /* ── Hero parallax (image only) ── */
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg && !prefersReducedMotion) {
+    gsap.to(heroImg, {
+      y: 80, scale: 1.1, ease: 'none',
+      scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1 },
     });
+  }
 
-    new Swiper('.gallery-main', {
-      modules: [Navigation, Thumbs, Autoplay],
-      spaceBetween: 0,
-      loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: true },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      thumbs: { swiper: thumbsSwiper },
-    });
-
-    /* ── Hero animation ── */
-    const heroContent = document.getElementById('hero-content');
-    if (heroContent) {
-      const tl = gsap.timeline({ delay: 0.3 });
-      tl.from(heroContent.querySelector('.label-md')!, { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' })
-        .from(heroContent.querySelector('h1')!, { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, '-=0.3')
-        .from(heroContent.querySelector('p')!, { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-        .from(heroContent.querySelectorAll('a, button'), { opacity: 0, y: 20, duration: 0.5, stagger: 0.1, ease: 'power3.out' }, '-=0.3');
-    }
-
-    /* ── Hero parallax ── */
-    const heroImg = document.getElementById('hero-img');
-    if (heroImg) {
-      gsap.to(heroImg, {
-        y: 80, scale: 1.1, ease: 'none',
-        scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: 1 },
-      });
-    }
-
-    /* ── Nav shrink ── */
-    const navInner = document.getElementById('nav-inner');
-    const nav = document.getElementById('main-nav');
+  /* ── Active nav link (scroll-based for homepage) ── */
+  const sectionToNav: [string, number][] = [
+    ['inicio', 0],
+    ['descubre', 0],
+    ['ubicacion', 0],
+    ['galeria', 0],
+    ['calidades', 1],
+    ['viviendas', 2],
+    ['planos', 3],
+    ['contacto', 3],
+  ];
+  const navLinks = document.querySelectorAll('.nav-link');
+  sectionToNav.forEach(([id, navIndex]) => {
+    const trigger = document.getElementById(id);
+    if (!trigger) return;
     ScrollTrigger.create({
-      start: 'top -100',
-      onUpdate: (self) => {
-        if (self.direction === 1 && self.progress > 0) {
-          nav?.classList.add('shadow-lg');
-          navInner?.classList.remove('h-20');
-          navInner?.classList.add('h-14');
-        } else if (self.progress === 0) {
-          nav?.classList.remove('shadow-lg');
-          navInner?.classList.remove('h-14');
-          navInner?.classList.add('h-20');
-        }
-      },
+      trigger: `#${id}`,
+      start: 'top center',
+      end: 'bottom center',
+      onEnter: () => setActive(navIndex),
+      onEnterBack: () => setActive(navIndex),
     });
-
-    /* ── Scroll reveals ── */
-    document.querySelectorAll('.anim-reveal').forEach((el) => {
-      gsap.from(el, {
-        opacity: 0, y: 50, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-      });
-    });
-
-    document.querySelectorAll('.anim-stagger').forEach((el) => {
-      gsap.from(el.children, {
-        opacity: 0, y: 35, duration: 0.7, ease: 'power3.out', stagger: 0.08,
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-      });
-    });
-
-    /* ── Counter animation ── */
-    document.querySelectorAll('[data-count]').forEach((el) => {
-      const target = parseInt(el.getAttribute('data-count') || '0');
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: target, duration: 2, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-        onUpdate: () => { (el as HTMLElement).textContent = Math.round(obj.val).toString(); },
-      });
-    });
-
-    /* ── Active nav link ── */
-    const sections = ['inicio', 'calidades', 'viviendas', 'planos', 'contacto'];
-    const navLinks = document.querySelectorAll('.nav-link');
-    sections.forEach((id, i) => {
-      ScrollTrigger.create({
-        trigger: `#${id}`,
-        start: 'top center',
-        end: 'bottom center',
-        onEnter: () => setActive(i),
-        onEnterBack: () => setActive(i),
-      });
-    });
-    function setActive(index: number) {
-      navLinks.forEach((link, i) => {
-        if (i === index) {
-          link.classList.add('text-primary', 'font-semibold', 'border-primary');
-          link.classList.remove('text-on-surface-variant', 'border-transparent');
-        } else {
-          link.classList.remove('text-primary', 'font-semibold', 'border-primary');
-          link.classList.add('text-on-surface-variant', 'border-transparent');
-        }
-      });
-    }
-
-    /* ── Mobile menu ── */
-    const mobileMenu = document.getElementById('mobile-menu');
-    document.getElementById('menu-toggle')?.addEventListener('click', () => mobileMenu?.classList.add('open'));
-    document.getElementById('menu-close')?.addEventListener('click', () => mobileMenu?.classList.remove('open'));
-    document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => mobileMenu?.classList.remove('open')));
-
-    /* ── Form ── */
-    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = (e.target as HTMLFormElement).querySelector('button[type="submit"]') as HTMLButtonElement;
-      if (btn) {
-        btn.innerHTML = '<span class="flex items-center justify-center gap-2">Solicitud Enviada <span class="material-symbols-outlined">check_circle</span></span>';
-        btn.classList.add('opacity-80', 'pointer-events-none');
-        gsap.from(btn, { scale: 0.95, duration: 0.3, ease: 'back.out(1.7)' });
+  });
+  function setActive(index: number) {
+    navLinks.forEach((link, i) => {
+      if (i === index) {
+        link.classList.add('text-primary', 'font-semibold', 'border-primary');
+        link.classList.remove('text-on-surface-variant', 'border-transparent');
+      } else {
+        link.classList.remove('text-primary', 'font-semibold', 'border-primary');
+        link.classList.add('text-on-surface-variant', 'border-transparent');
       }
     });
-  </script>
+  }
 
-</body>
-</html>
+  /* ── Form ── */
+  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const status = document.getElementById('contact-form-status');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+    }
+    setTimeout(() => {
+      if (btn) btn.textContent = 'Solicitud enviada';
+      if (status) status.textContent = '✓ Te contactaremos en menos de 24h.';
+    }, 400);
+  });
+</script>

@@ -1,0 +1,724 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  currentPage="planos"
+  title="Planos y Disponibilidad — Molí Baix"
+  description="Consulta los planos y la disponibilidad de las viviendas de Molí Baix en Massamagrell. Lofts, áticos, 1, 2 y 3 dormitorios desde 145.000€."
+>
+
+  <!-- ═══════════ PAGE HERO ═══════════ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img width="1920" height="1080" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center scale-105"
+        src="/images/plano-exterior-frontal.webp"
+        alt="Fachada frontal del edificio Molí Baix" />
+      <div class="absolute inset-0 bg-gradient-to-r from-on-background/70 via-on-background/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-on-background/30 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-40" id="planos-hero">
+      <nav aria-label="Breadcrumb" class="hero-anim-init flex items-center gap-2 text-sm text-white/50 mb-8">
+        <a href="/" class="hover:text-white transition-colors">Inicio</a>
+        <span class="material-symbols-outlined text-base">chevron_right</span>
+        <span class="text-white" aria-current="page">Planos y Disponibilidad</span>
+      </nav>
+      <span class="hero-anim-init label-md tracking-[0.25em] text-primary-fixed-dim mb-4 block font-bold">Planos y Disponibilidad</span>
+      <h1 class="hero-anim-init text-4xl sm:text-5xl lg:text-7xl font-extrabold font-headline text-white mb-6">
+        Elige tu<br/>vivienda
+      </h1>
+      <p class="hero-anim-init text-xl lg:text-2xl text-white/70 max-w-xl font-light mb-10">
+        Consulta la disponibilidad en tiempo real, compara superficies y encuentra la vivienda perfecta para ti.
+      </p>
+      <div class="flex flex-wrap items-center gap-4" data-hero-ctas>
+        <a href="#disponibilidad" class="hero-anim-init inline-flex items-center gap-2.5 btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
+          <span class="material-symbols-outlined text-xl">table_view</span>
+          Ver Disponibilidad
+        </a>
+        <button id="tour-open" type="button" aria-haspopup="dialog" aria-controls="tour-modal" class="hero-anim-init inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/20 hover:border-white/50 active:scale-95 group">
+          <span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform duration-300">360</span>
+          Vista 360°
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Vista 360° -->
+  <div id="tour-modal" role="dialog" aria-modal="true" aria-labelledby="tour-modal-title" aria-hidden="true" class="fixed inset-0 z-[100] hidden items-center justify-center bg-on-background/80 backdrop-blur-sm p-4" style="overscroll-behavior: contain;">
+    <div tabindex="-1" class="bg-white rounded-2xl w-full max-w-6xl h-[90vh] flex flex-col editorial-shadow-lg overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-surface-container-high/40">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-2xl">360</span>
+          <h3 id="tour-modal-title" class="font-bold font-headline text-on-background">Vista 360° — Interior de vivienda</h3>
+        </div>
+        <button id="tour-close" type="button" aria-label="Cerrar vista 360°" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined text-on-background">close</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-hidden">
+        <iframe id="tour-iframe" title="Tour virtual 360° del interior de la vivienda" class="w-full h-full border-0" src="" allow="fullscreen; gyroscope; accelerometer"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════ RESUMEN RÁPIDO ═══════════ -->
+  <section class="py-12 lg:py-16 bg-surface-container-lowest border-b border-surface-container-high/40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 anim-reveal">
+        <div class="text-center p-6 lg:p-8 rounded-2xl bg-surface-container border border-surface-container-high/40">
+          <p class="text-3xl lg:text-4xl font-extrabold font-headline text-primary tabular-nums">78</p>
+          <p class="label-md text-secondary mt-2">Viviendas</p>
+        </div>
+        <div class="text-center p-6 lg:p-8 rounded-2xl bg-surface-container border border-surface-container-high/40">
+          <p class="text-3xl lg:text-4xl font-extrabold font-headline text-primary tabular-nums">6</p>
+          <p class="label-md text-secondary mt-2">Tipologías</p>
+        </div>
+        <div class="text-center p-6 lg:p-8 rounded-2xl bg-surface-container border border-surface-container-high/40">
+          <p class="text-3xl lg:text-4xl font-extrabold font-headline text-primary tabular-nums">61–252</p>
+          <p class="label-md text-secondary mt-2">m² construidos</p>
+        </div>
+        <div class="text-center p-6 lg:p-8 rounded-2xl bg-surface-container border border-surface-container-high/40">
+          <p class="text-3xl lg:text-4xl font-extrabold font-headline text-primary tabular-nums">145.000€</p>
+          <p class="label-md text-secondary mt-2">Desde</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ TABLA DE DISPONIBILIDAD ═══════════ -->
+  <section class="py-12 lg:py-16 bg-surface-container-lowest" id="disponibilidad">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-3 block font-bold">Disponibilidad</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6">
+          Todas las viviendas
+        </h2>
+        <div class="divider-soft mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Filtra por dormitorios, planta o estado para encontrar tu vivienda ideal.
+        </p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="flex flex-wrap items-center gap-3 mb-8 anim-reveal" id="filters">
+        <span class="text-sm font-semibold text-on-background mr-2" id="filter-label">Filtrar:</span>
+
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por número de dormitorios">
+          <button type="button" class="filter-btn" data-filter="dorm" data-value="all" aria-pressed="true">Todos</button>
+          <button type="button" class="filter-btn" data-filter="dorm" data-value="1" aria-pressed="false">1 Dorm.</button>
+          <button type="button" class="filter-btn" data-filter="dorm" data-value="2" aria-pressed="false">2 Dorm.</button>
+          <button type="button" class="filter-btn" data-filter="dorm" data-value="3" aria-pressed="false">3 Dorm.</button>
+        </div>
+
+        <div class="w-px h-6 bg-surface-container-high mx-2 hidden sm:block" aria-hidden="true"></div>
+
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por planta">
+          <button type="button" class="filter-btn" data-filter="planta" data-value="all" aria-pressed="true">Todas</button>
+          <button type="button" class="filter-btn" data-filter="planta" data-value="0" aria-pressed="false">PB</button>
+          <button type="button" class="filter-btn" data-filter="planta" data-value="1" aria-pressed="false">P1</button>
+          <button type="button" class="filter-btn" data-filter="planta" data-value="2" aria-pressed="false">P2</button>
+          <button type="button" class="filter-btn" data-filter="planta" data-value="3" aria-pressed="false">P3</button>
+          <button type="button" class="filter-btn" data-filter="planta" data-value="4" aria-pressed="false">Ático</button>
+        </div>
+
+        <div class="w-px h-6 bg-surface-container-high mx-2 hidden sm:block" aria-hidden="true"></div>
+
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por estado">
+          <button type="button" class="filter-btn" data-filter="estado" data-value="all" aria-pressed="true">Todos</button>
+          <button type="button" class="filter-btn" data-filter="estado" data-value="disponible" aria-pressed="false">Disponible</button>
+          <button type="button" class="filter-btn" data-filter="estado" data-value="no_disponible" aria-pressed="false">No disponible</button>
+          <button type="button" class="filter-btn" data-filter="estado" data-value="vendido" aria-pressed="false">Vendido</button>
+        </div>
+      </div>
+
+      <!-- Contador de resultados -->
+      <p class="text-sm text-secondary mb-4 tabular-nums" id="result-count" role="status" aria-live="polite">Mostrando 78 viviendas</p>
+
+
+      <!-- Tabla (desktop) -->
+      <div class="hidden md:block overflow-x-auto rounded-2xl border border-surface-container-high/40 editorial-shadow anim-reveal">
+        <table class="w-full text-sm" id="units-table">
+          <caption class="sr-only">Disponibilidad de viviendas por planta, tipología, superficie y precio</caption>
+          <thead>
+            <tr class="bg-surface-container text-left">
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider">Vivienda</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider">Planta</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider">Dorm.</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider">Superficie</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider text-center">Parking</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider text-center">Trastero</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider text-center">Planos</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider text-right">Precio</th>
+              <th scope="col" class="px-5 py-4 font-bold text-on-background text-xs uppercase tracking-wider text-center">Estado</th>
+            </tr>
+          </thead>
+          <tbody id="units-body">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cards (mobile) -->
+      <div class="md:hidden space-y-3" id="units-cards">
+      </div>
+
+      <!-- Modal visor de planos -->
+      <div id="plan-modal" role="dialog" aria-modal="true" aria-labelledby="plan-modal-title" aria-hidden="true" class="fixed inset-0 z-[100] hidden items-center justify-center bg-on-background/60 backdrop-blur-sm p-4" style="overscroll-behavior: contain;">
+        <div tabindex="-1" class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col editorial-shadow-lg overflow-hidden">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-surface-container-high/40">
+            <h3 class="font-bold font-headline text-on-background" id="plan-modal-title">Plano</h3>
+            <div class="flex items-center gap-3">
+              <a id="plan-open-tab" href="#" target="_blank" rel="noopener" aria-label="Abrir plano en nueva pestaña" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-container transition-colors">
+                <span class="material-symbols-outlined text-base">open_in_new</span> Abrir
+              </a>
+              <a id="plan-download" href="#" download aria-label="Descargar plano en PDF" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-container transition-colors">
+                <span class="material-symbols-outlined text-base">download</span> Descargar
+              </a>
+              <button id="plan-close" type="button" aria-label="Cerrar visor de plano" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors">
+                <span class="material-symbols-outlined text-on-background">close</span>
+              </button>
+            </div>
+          </div>
+          <div class="flex-1 overflow-auto p-4 bg-surface-container">
+            <iframe id="plan-iframe" title="Visor de plano de vivienda en PDF" class="w-full h-[70vh] rounded-xl border-0" src=""></iframe>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-secondary italic mt-6 text-center">* Precios sin 10% de IVA. Superficies construidas con elementos comunes. Plazas de garaje y trasteros opcionales según disponibilidad.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ TIPOLOGÍAS RESUMEN ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Tipologías</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Resumen por tipología
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Cada tipología ofrece una distribución diferente para adaptarse a tus necesidades.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
+        <!-- Loft -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">apartment</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 145.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Loft</h3>
+          <p class="text-secondary text-sm mb-4">1 dormitorio + 1 baño. Planta baja con terraza privada.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>75–134 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 10–23 m²</span>
+          </div>
+        </div>
+
+        <!-- 1 Dormitorio -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">bed</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 165.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">1 Dormitorio</h3>
+          <p class="text-secondary text-sm mb-4">1 dormitorio + 1 baño. Plantas 1ª a 3ª.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>61–116 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 3–58 m²</span>
+          </div>
+        </div>
+
+        <!-- 2 Dormitorios -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">door_sliding</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 209.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">2 Dormitorios</h3>
+          <p class="text-secondary text-sm mb-4">2 dormitorios + 2 baños. Plantas 1ª a 3ª.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>88–189 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 4–105 m²</span>
+          </div>
+        </div>
+
+        <!-- 3 Dormitorios -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">family_restroom</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 254.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">3 Dormitorios</h3>
+          <p class="text-secondary text-sm mb-4">3 dormitorios + 2 baños. Plantas 1ª a 4ª.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>122–252 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 5–136 m²</span>
+          </div>
+        </div>
+
+        <!-- 3 Dorm Esquinero -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">open_in_full</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 260.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">3 Dorm. Esquinero</h3>
+          <p class="text-secondary text-sm mb-4">3 dormitorios + 2 baños. Orientación Sur.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>129 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 7,65 m²</span>
+          </div>
+        </div>
+
+        <!-- Ático -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center transition-transform duration-300">
+              <span class="material-symbols-outlined text-primary text-xl">wb_twilight</span>
+            </div>
+            <span class="label-md bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full">Desde 191.000€</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Ático</h3>
+          <p class="text-secondary text-sm mb-4">1, 2 o 3 dormitorios. Solárium privado.</p>
+          <div class="flex items-center gap-4 text-xs text-secondary">
+            <span>93–226 m²</span>
+            <span class="w-1 h-1 rounded-full bg-secondary"></span>
+            <span>Terraza: 36–107 m²</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="py-16 lg:py-24 bg-primary relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent_60%)]"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5 translate-y-1/3 -translate-x-1/4"></div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center anim-reveal">
+      <span class="material-symbols-outlined text-white/80 text-5xl mb-6 block">call</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-white mb-4">
+        ¿Necesitas ayuda para elegir?
+      </h2>
+      <p class="text-white/70 text-lg mb-6 max-w-xl mx-auto">
+        Nuestro equipo comercial te guiará en la elección perfecta para ti y tu familia. Sin compromiso.
+      </p>
+      <a href="tel:+34620197665" class="text-white text-2xl font-extrabold font-headline mb-8 block hover:text-white/80 transition-colors tabular-nums">(+34) 620 197 665</a>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/#contacto" class="bg-white text-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl hover:bg-white/90">
+          Contactar con Ventas
+        </a>
+        <a href="/viviendas" class="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+          Ver Viviendas
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+
+<!-- ═══════════ STYLES ═══════════ -->
+<style>
+  .filter-btn {
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1.5px solid var(--color-surface-container-high);
+    color: var(--color-secondary);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  .filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  #units-table tbody tr {
+    border-top: 1px solid var(--color-surface-container-high);
+    transition: background 0.15s ease;
+  }
+  #units-table tbody tr:hover {
+    background: var(--color-primary-fixed);
+  }
+  #units-table tbody tr.hidden {
+    display: none;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .status-disponible {
+    background: #dcfce7;
+    color: #166534;
+  }
+  .status-reservado {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .status-vendido {
+    background: var(--color-surface-container-high);
+    color: var(--color-secondary);
+  }
+  .status-no_disponible {
+    background: #fde8e8;
+    color: #991b1b;
+  }
+</style>
+
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Hero entrance ── */
+  const hero = document.getElementById('planos-hero');
+  if (hero && !prefersReducedMotion) {
+    const breadcrumb = hero.querySelector('nav');
+    const label = hero.querySelector('.label-md');
+    const heading = hero.querySelector('h1');
+    const desc = hero.querySelector('p');
+    const ctas = hero.querySelectorAll('[data-hero-ctas] > a, [data-hero-ctas] > button');
+    const tl = gsap.timeline({ delay: 0.2 });
+    if (breadcrumb) tl.fromTo(breadcrumb, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' });
+    if (label) tl.fromTo(label, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.25');
+    if (heading) tl.fromTo(heading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.35');
+    if (desc) tl.fromTo(desc, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+    if (ctas.length) tl.fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.12, ease: 'power3.out' }, '-=0.35');
+  } else if (hero) {
+    hero.querySelectorAll('.hero-anim-init').forEach((el) => (el as HTMLElement).style.opacity = '1');
+  }
+
+  /* ── Unit data (real data from molibaix.com) ── */
+  interface Unit {
+    id: string;
+    planta: number;
+    dorm: number;
+    sup: number;
+    parking: boolean;
+    trastero: boolean;
+    precio: number;
+    estado: string;
+    plano: string | null;
+  }
+
+  const units: Unit[] = [
+    // Planta Baja
+    { id: 'PB.01', planta: 0, dorm: 1, sup: 52.08, parking: true, trastero: false, precio: 145000, estado: 'vendido', plano: null },
+    { id: 'PB.02', planta: 0, dorm: 1, sup: 54.36, parking: true, trastero: false, precio: 149000, estado: 'vendido', plano: null },
+    { id: 'PB.03', planta: 0, dorm: 1, sup: 54.33, parking: true, trastero: true, precio: 152000, estado: 'vendido', plano: null },
+    { id: 'PB.04', planta: 0, dorm: 1, sup: 50.20, parking: true, trastero: false, precio: 147000, estado: 'vendido', plano: null },
+    { id: 'PB.05', planta: 0, dorm: 2, sup: 87.84, parking: true, trastero: true, precio: 198000, estado: 'vendido', plano: null },
+    { id: 'PB.06', planta: 0, dorm: 2, sup: 89.31, parking: true, trastero: true, precio: 203000, estado: 'vendido', plano: null },
+    // Planta 1
+    { id: '1º.01', planta: 1, dorm: 1, sup: 47.50, parking: false, trastero: false, precio: 162000, estado: 'vendido', plano: null },
+    { id: '1º.02', planta: 1, dorm: 1, sup: 47.62, parking: false, trastero: false, precio: 163000, estado: 'vendido', plano: null },
+    { id: '1º.03', planta: 1, dorm: 1, sup: 48.18, parking: true, trastero: false, precio: 167000, estado: 'vendido', plano: null },
+    { id: '1º.04', planta: 1, dorm: 1, sup: 48.23, parking: true, trastero: false, precio: 170000, estado: 'disponible', plano: '/planos/P1_1D.07_R.pdf' },
+    { id: '1º.05', planta: 1, dorm: 2, sup: 69.56, parking: true, trastero: true, precio: 265000, estado: 'no_disponible', plano: null },
+    { id: '1º.06', planta: 1, dorm: 2, sup: 69.54, parking: true, trastero: true, precio: 265000, estado: 'no_disponible', plano: null },
+    { id: '1º.07', planta: 1, dorm: 2, sup: 69.50, parking: true, trastero: false, precio: 260000, estado: 'no_disponible', plano: null },
+    { id: '1º.08', planta: 1, dorm: 2, sup: 69.48, parking: true, trastero: false, precio: 260000, estado: 'no_disponible', plano: null },
+    { id: '1º.09', planta: 1, dorm: 2, sup: 69.55, parking: true, trastero: true, precio: 278000, estado: 'disponible', plano: '/planos/P1_2D.03_P.pdf' },
+    { id: '1º.10', planta: 1, dorm: 2, sup: 69.66, parking: true, trastero: false, precio: 262000, estado: 'vendido', plano: null },
+    { id: '1º.11', planta: 1, dorm: 2, sup: 69.54, parking: true, trastero: true, precio: 268000, estado: 'vendido', plano: null },
+    { id: '1º.12', planta: 1, dorm: 2, sup: 69.59, parking: true, trastero: false, precio: 261000, estado: 'vendido', plano: null },
+    { id: '1º.13', planta: 1, dorm: 3, sup: 96.02, parking: true, trastero: true, precio: 315000, estado: 'disponible', plano: '/planos/P1_3D.01_D.pdf' },
+    { id: '1º.14', planta: 1, dorm: 3, sup: 95.94, parking: true, trastero: true, precio: 312000, estado: 'vendido', plano: null },
+    { id: '1º.15', planta: 1, dorm: 3, sup: 100.59, parking: true, trastero: true, precio: 318000, estado: 'vendido', plano: null },
+    { id: '1º.16', planta: 1, dorm: 3, sup: 100.63, parking: true, trastero: true, precio: 319000, estado: 'vendido', plano: null },
+    { id: '1º.17', planta: 1, dorm: 3, sup: 97.48, parking: true, trastero: true, precio: 321000, estado: 'disponible', plano: '/planos/P1_3D.05_O.pdf' },
+    // Planta 2
+    { id: '2º.01', planta: 2, dorm: 1, sup: 47.50, parking: false, trastero: false, precio: 165000, estado: 'vendido', plano: null },
+    { id: '2º.02', planta: 2, dorm: 1, sup: 47.62, parking: false, trastero: false, precio: 166000, estado: 'vendido', plano: null },
+    { id: '2º.03', planta: 2, dorm: 1, sup: 48.18, parking: true, trastero: false, precio: 170000, estado: 'vendido', plano: null },
+    { id: '2º.04', planta: 2, dorm: 1, sup: 48.23, parking: true, trastero: false, precio: 173000, estado: 'disponible', plano: '/planos/P2_1D.07_R.pdf' },
+    { id: '2º.05', planta: 2, dorm: 2, sup: 69.56, parking: true, trastero: true, precio: 210000, estado: 'vendido', plano: null },
+    { id: '2º.06', planta: 2, dorm: 2, sup: 69.54, parking: true, trastero: false, precio: 208000, estado: 'vendido', plano: null },
+    { id: '2º.07', planta: 2, dorm: 2, sup: 69.50, parking: true, trastero: true, precio: 212000, estado: 'vendido', plano: null },
+    { id: '2º.08', planta: 2, dorm: 2, sup: 69.48, parking: true, trastero: false, precio: 209000, estado: 'no_disponible', plano: null },
+    { id: '2º.09', planta: 2, dorm: 2, sup: 69.55, parking: true, trastero: true, precio: 215000, estado: 'disponible', plano: '/planos/P2_2D.03_L.pdf' },
+    { id: '2º.10', planta: 2, dorm: 2, sup: 69.66, parking: true, trastero: false, precio: 211000, estado: 'vendido', plano: null },
+    { id: '2º.11', planta: 2, dorm: 2, sup: 69.54, parking: true, trastero: true, precio: 214000, estado: 'vendido', plano: null },
+    { id: '2º.12', planta: 2, dorm: 2, sup: 69.59, parking: true, trastero: true, precio: 215000, estado: 'disponible', plano: '/planos/P2_2D.04_K.pdf' },
+    { id: '2º.13', planta: 2, dorm: 2, sup: 68.71, parking: true, trastero: false, precio: 207000, estado: 'no_disponible', plano: null },
+    { id: '2º.14', planta: 2, dorm: 3, sup: 96.02, parking: true, trastero: true, precio: 268000, estado: 'vendido', plano: null },
+    { id: '2º.15', planta: 2, dorm: 3, sup: 95.94, parking: true, trastero: true, precio: 267000, estado: 'vendido', plano: null },
+    { id: '2º.16', planta: 2, dorm: 3, sup: 100.59, parking: true, trastero: true, precio: 272000, estado: 'disponible', plano: '/planos/P2_3D.03_J.pdf' },
+    { id: '2º.17', planta: 2, dorm: 3, sup: 100.63, parking: true, trastero: true, precio: 273000, estado: 'vendido', plano: null },
+    { id: '2º.18', planta: 2, dorm: 3, sup: 97.48, parking: true, trastero: true, precio: 285000, estado: 'disponible', plano: '/planos/P2_3D.05_O.pdf' },
+    // Planta 3
+    { id: '3º.01', planta: 3, dorm: 1, sup: 47.50, parking: false, trastero: false, precio: 168000, estado: 'vendido', plano: null },
+    { id: '3º.02', planta: 3, dorm: 1, sup: 47.62, parking: false, trastero: false, precio: 169000, estado: 'vendido', plano: null },
+    { id: '3º.03', planta: 3, dorm: 1, sup: 48.18, parking: true, trastero: false, precio: 173000, estado: 'vendido', plano: null },
+    { id: '3º.04', planta: 3, dorm: 1, sup: 48.23, parking: true, trastero: false, precio: 175000, estado: 'vendido', plano: null },
+    { id: '3º.05', planta: 3, dorm: 2, sup: 69.56, parking: true, trastero: true, precio: 222000, estado: 'disponible', plano: '/planos/P3_2D.03_B.pdf' },
+    { id: '3º.06', planta: 3, dorm: 2, sup: 69.54, parking: true, trastero: false, precio: 218000, estado: 'no_disponible', plano: null },
+    { id: '3º.07', planta: 3, dorm: 2, sup: 69.50, parking: true, trastero: true, precio: 220000, estado: 'vendido', plano: null },
+    { id: '3º.08', planta: 3, dorm: 2, sup: 69.48, parking: true, trastero: false, precio: 217000, estado: 'vendido', plano: null },
+    { id: '3º.09', planta: 3, dorm: 2, sup: 69.55, parking: true, trastero: true, precio: 221000, estado: 'no_disponible', plano: null },
+    { id: '3º.10', planta: 3, dorm: 2, sup: 69.66, parking: true, trastero: true, precio: 232000, estado: 'disponible', plano: '/planos/P3_2D.03_P.pdf' },
+    { id: '3º.11', planta: 3, dorm: 2, sup: 69.54, parking: true, trastero: false, precio: 219000, estado: 'no_disponible', plano: null },
+    { id: '3º.12', planta: 3, dorm: 2, sup: 69.59, parking: true, trastero: true, precio: 224000, estado: 'disponible', plano: '/planos/P3_2D.04_K.pdf' },
+    { id: '3º.13', planta: 3, dorm: 2, sup: 68.71, parking: true, trastero: false, precio: 216000, estado: 'vendido', plano: null },
+    { id: '3º.14', planta: 3, dorm: 3, sup: 96.02, parking: true, trastero: true, precio: 293000, estado: 'disponible', plano: '/planos/P3_3D.01_D.pdf' },
+    { id: '3º.15', planta: 3, dorm: 3, sup: 95.94, parking: true, trastero: true, precio: 278000, estado: 'vendido', plano: null },
+    { id: '3º.16', planta: 3, dorm: 3, sup: 100.59, parking: true, trastero: true, precio: 284000, estado: 'disponible', plano: '/planos/P3_3D.03_J.pdf' },
+    { id: '3º.17', planta: 3, dorm: 3, sup: 100.63, parking: true, trastero: true, precio: 285000, estado: 'vendido', plano: null },
+    { id: '3º.18', planta: 3, dorm: 3, sup: 97.48, parking: true, trastero: true, precio: 280000, estado: 'vendido', plano: null },
+    // Planta 4 (Ático)
+    { id: 'AT.01', planta: 4, dorm: 1, sup: 47.50, parking: true, trastero: false, precio: 191000, estado: 'no_disponible', plano: null },
+    { id: 'AT.02', planta: 4, dorm: 1, sup: 47.62, parking: true, trastero: false, precio: 193000, estado: 'no_disponible', plano: null },
+    { id: 'AT.03', planta: 4, dorm: 1, sup: 48.18, parking: true, trastero: true, precio: 196000, estado: 'no_disponible', plano: null },
+    { id: 'AT.04', planta: 4, dorm: 1, sup: 48.23, parking: true, trastero: false, precio: 198000, estado: 'vendido', plano: null },
+    { id: 'AT.05', planta: 4, dorm: 2, sup: 69.56, parking: true, trastero: true, precio: 258000, estado: 'no_disponible', plano: null },
+    { id: 'AT.06', planta: 4, dorm: 2, sup: 69.54, parking: true, trastero: true, precio: 257000, estado: 'no_disponible', plano: null },
+    { id: 'AT.07', planta: 4, dorm: 2, sup: 69.50, parking: true, trastero: true, precio: 264000, estado: 'disponible', plano: '/planos/P4_2D.03_F.pdf' },
+    { id: 'AT.08', planta: 4, dorm: 2, sup: 69.48, parking: true, trastero: true, precio: 267000, estado: 'disponible', plano: '/planos/P4_2D.03_G.pdf' },
+    { id: 'AT.09', planta: 4, dorm: 2, sup: 69.55, parking: true, trastero: false, precio: 260000, estado: 'no_disponible', plano: null },
+    { id: 'AT.10', planta: 4, dorm: 2, sup: 69.66, parking: true, trastero: true, precio: 262000, estado: 'no_disponible', plano: null },
+    { id: 'AT.11', planta: 4, dorm: 2, sup: 69.54, parking: true, trastero: false, precio: 259000, estado: 'no_disponible', plano: null },
+    { id: 'AT.12', planta: 4, dorm: 2, sup: 69.59, parking: true, trastero: true, precio: 261000, estado: 'no_disponible', plano: null },
+    { id: 'AT.13', planta: 4, dorm: 2, sup: 68.71, parking: true, trastero: true, precio: 267000, estado: 'disponible', plano: '/planos/P4_3D.02_E.pdf' },
+    { id: 'AT.14', planta: 4, dorm: 3, sup: 96.02, parking: true, trastero: true, precio: 310000, estado: 'no_disponible', plano: null },
+    { id: 'AT.15', planta: 4, dorm: 3, sup: 95.94, parking: true, trastero: true, precio: 323000, estado: 'disponible', plano: '/planos/P4_3D.02_E.pdf' },
+    { id: 'AT.16', planta: 4, dorm: 3, sup: 100.59, parking: true, trastero: true, precio: 318000, estado: 'no_disponible', plano: null },
+    { id: 'AT.17', planta: 4, dorm: 3, sup: 100.63, parking: true, trastero: true, precio: 320000, estado: 'no_disponible', plano: null },
+    { id: 'AT.18', planta: 4, dorm: 3, sup: 97.48, parking: true, trastero: true, precio: 315000, estado: 'no_disponible', plano: null },
+  ];
+
+  const plantaLabels: Record<number, string> = { 0: 'Planta Baja', 1: 'Planta 1ª', 2: 'Planta 2ª', 3: 'Planta 3ª', 4: 'Ático' };
+  const estadoLabels: Record<string, string> = { disponible: 'Disponible', no_disponible: 'No disponible', vendido: 'Vendido' };
+
+  const tbody = document.getElementById('units-body')!;
+  const countEl = document.getElementById('result-count')!;
+
+  const cardsContainer = document.getElementById('units-cards')!;
+
+  function renderTable() {
+    // Desktop table
+    tbody.innerHTML = units.map(u => `
+      <tr data-dorm="${u.dorm}" data-planta="${u.planta}" data-estado="${u.estado}">
+        <th scope="row" class="px-5 py-3.5 font-bold text-on-background text-left">${u.id}</th>
+        <td class="px-5 py-3.5 text-secondary">${plantaLabels[u.planta]}</td>
+        <td class="px-5 py-3.5 text-secondary tabular-nums">${u.dorm}</td>
+        <td class="px-5 py-3.5 text-secondary tabular-nums">${u.sup.toFixed(2)} m²</td>
+        <td class="px-5 py-3.5 text-center">${u.parking ? '<span class="material-symbols-outlined text-primary text-base" role="img" aria-label="Sí">check</span>' : '<span class="text-secondary/40" aria-label="No">—</span>'}</td>
+        <td class="px-5 py-3.5 text-center">${u.trastero ? '<span class="material-symbols-outlined text-primary text-base" role="img" aria-label="Sí">check</span>' : '<span class="text-secondary/40" aria-label="No">—</span>'}</td>
+        <td class="px-5 py-3.5 text-center">${u.plano
+          ? `<a href="${u.plano}" class="plan-view-btn inline-flex items-center gap-1 text-primary font-semibold text-xs hover:text-primary-container transition-colors" data-pdf="${u.plano}" data-title="Plano ${u.id}" aria-label="Ver plano de vivienda ${u.id}"><span class="material-symbols-outlined text-sm">visibility</span> Ver</a>`
+          : '<span class="text-secondary/40">—</span>'}</td>
+        <td class="px-5 py-3.5 text-right font-bold tabular-nums ${u.estado === 'vendido' || u.estado === 'no_disponible' ? 'text-secondary' : 'text-on-background'}">${u.precio.toLocaleString('es-ES')}€</td>
+        <td class="px-5 py-3.5 text-center"><span class="status-badge status-${u.estado}">${estadoLabels[u.estado]}</span></td>
+      </tr>
+    `).join('');
+
+    // Mobile cards
+    cardsContainer.innerHTML = units.map(u => `
+      <div class="unit-card bg-white rounded-xl p-4 border border-surface-container-high/40 editorial-shadow" data-dorm="${u.dorm}" data-planta="${u.planta}" data-estado="${u.estado}">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <p class="font-bold text-on-background text-base">${u.id}</p>
+            <p class="text-xs text-secondary tabular-nums">${plantaLabels[u.planta]} · ${u.dorm} dorm. · ${u.sup.toFixed(2)} m²</p>
+          </div>
+          <span class="status-badge status-${u.estado}">${estadoLabels[u.estado]}</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="font-bold text-lg tabular-nums ${u.estado === 'vendido' || u.estado === 'no_disponible' ? 'text-secondary' : 'text-on-background'}">${u.precio.toLocaleString('es-ES')}€</p>
+          <div class="flex items-center gap-3 text-xs text-secondary">
+            ${u.parking ? '<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-primary text-sm">local_parking</span>P</span>' : ''}
+            ${u.trastero ? '<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-primary text-sm">warehouse</span>T</span>' : ''}
+            ${u.plano ? `<a href="${u.plano}" class="plan-view-btn text-primary font-semibold flex items-center gap-0.5" data-pdf="${u.plano}" data-title="Plano ${u.id}" aria-label="Ver plano de vivienda ${u.id}"><span class="material-symbols-outlined text-sm">visibility</span>Plano</a>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  renderTable();
+
+  /* ── Filters ── */
+  const activeFilters: Record<string, string> = { dorm: 'all', planta: 'all', estado: 'all' };
+
+  /* ── Apply initial filters from URL params (?dorm=2&planta=4) ── */
+  const urlParams = new URLSearchParams(window.location.search);
+  (['dorm', 'planta', 'estado'] as const).forEach((key) => {
+    const val = urlParams.get(key);
+    if (val) {
+      activeFilters[key] = val;
+      document.querySelectorAll(`.filter-btn[data-filter="${key}"]`).forEach(b => b.setAttribute('aria-pressed', 'false'));
+      const target = document.querySelector(`.filter-btn[data-filter="${key}"][data-value="${val}"]`);
+      target?.setAttribute('aria-pressed', 'true');
+    }
+  });
+  if (urlParams.toString()) {
+    applyFilters();
+    // Scroll to availability section after layout settles
+    setTimeout(() => {
+      document.getElementById('disponibilidad')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+
+  function syncUrl() {
+    const params = new URLSearchParams();
+    (Object.keys(activeFilters) as Array<keyof typeof activeFilters>).forEach((k) => {
+      if (activeFilters[k] !== 'all') params.set(k, activeFilters[k]);
+    });
+    const qs = params.toString();
+    const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+    window.history.replaceState(null, '', newUrl + window.location.hash);
+  }
+
+  document.getElementById('filters')!.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLElement | null;
+    if (!btn) return;
+
+    const filterType = btn.dataset.filter!;
+    const value = btn.dataset.value!;
+    activeFilters[filterType] = value;
+
+    // Update aria-pressed within this group
+    document.querySelectorAll(`.filter-btn[data-filter="${filterType}"]`).forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+
+    applyFilters();
+    syncUrl();
+  });
+
+  function applyFilters() {
+    let visible = 0;
+    // Filter both table rows and mobile cards
+    const items = [...tbody.querySelectorAll('tr'), ...cardsContainer.querySelectorAll('.unit-card')];
+    items.forEach(item => {
+      const el = item as HTMLElement;
+      const matchDorm = activeFilters.dorm === 'all' || el.dataset.dorm === activeFilters.dorm;
+      const matchPlanta = activeFilters.planta === 'all' || el.dataset.planta === activeFilters.planta;
+      const matchEstado = activeFilters.estado === 'all' || el.dataset.estado === activeFilters.estado;
+
+      if (matchDorm && matchPlanta && matchEstado) {
+        el.classList.remove('hidden');
+        // Only count once (from table rows, not cards)
+        if (el.tagName === 'TR') visible++;
+      } else {
+        el.classList.add('hidden');
+      }
+    });
+    countEl.textContent = `Mostrando ${visible} vivienda${visible !== 1 ? 's' : ''}`;
+  }
+
+  /* ── Plan modal ── */
+  const modal = document.getElementById('plan-modal')!;
+  const iframe = document.getElementById('plan-iframe') as HTMLIFrameElement;
+  const modalTitle = document.getElementById('plan-modal-title')!;
+  const openTabLink = document.getElementById('plan-open-tab') as HTMLAnchorElement;
+  const downloadLink = document.getElementById('plan-download') as HTMLAnchorElement;
+  const closeBtn = document.getElementById('plan-close')!;
+
+  function handlePlanClick(e: Event) {
+    const mouseEvt = e as MouseEvent;
+    // Let ctrl/cmd/middle-click open in new tab natively
+    if (mouseEvt.ctrlKey || mouseEvt.metaKey || mouseEvt.shiftKey || mouseEvt.button === 1) return;
+    const btn = (e.target as HTMLElement).closest('.plan-view-btn') as HTMLElement | null;
+    if (!btn) return;
+    e.preventDefault();
+    const pdf = btn.dataset.pdf!;
+    const title = btn.dataset.title || 'Plano';
+    modalTitle.textContent = title;
+    iframe.src = pdf;
+    openTabLink.href = pdf;
+    downloadLink.href = pdf;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  tbody.addEventListener('click', handlePlanClick);
+  cardsContainer.addEventListener('click', handlePlanClick);
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.setAttribute('aria-hidden', 'true');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!modal.classList.contains('hidden')) closeModal();
+      if (!tourModal.classList.contains('hidden')) closeTour();
+    }
+  });
+
+  /* ── Tour 360° modal ── */
+  const tourModal = document.getElementById('tour-modal')!;
+  const tourIframe = document.getElementById('tour-iframe') as HTMLIFrameElement;
+  const tourOpen = document.getElementById('tour-open')!;
+  const tourClose = document.getElementById('tour-close')!;
+  const tourUrl = 'https://vicom360.es/VIBO_Massamagrell/tour/index.html';
+
+  tourOpen.addEventListener('click', () => {
+    tourIframe.src = tourUrl;
+    tourModal.classList.remove('hidden');
+    tourModal.classList.add('flex');
+    tourModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+
+  tourClose.addEventListener('click', closeTour);
+  tourModal.addEventListener('click', (e) => {
+    if (e.target === tourModal) closeTour();
+  });
+
+  function closeTour() {
+    tourModal.classList.add('hidden');
+    tourModal.classList.remove('flex');
+    tourModal.setAttribute('aria-hidden', 'true');
+    tourIframe.src = '';
+    document.body.style.overflow = '';
+  }
+</script>

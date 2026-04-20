@@ -57,6 +57,13 @@ body {
   background: var(--color-surface-bright);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
 /* ── Utility classes ── */
@@ -119,11 +126,12 @@ body {
   transform: translateX(0);
 }
 
-/* ── Smooth zoom on images ── */
+/* ── Smooth zoom on images (only inside anchors / clickable cards) ── */
 .img-zoom {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.group:hover .img-zoom {
+a.group:hover .img-zoom,
+a:hover .img-zoom {
   transform: scale(1.05);
 }
 
@@ -154,16 +162,153 @@ body {
   background: var(--color-primary) !important;
 }
 
-/* ── Lightbox thumbnails ── */
+/* ── Brand marquee ── */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.brand-marquee {
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.brand-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.brand-marquee:hover .brand-marquee-track {
+  animation-play-state: paused;
+}
+
+.brand-logo {
+  height: 1.75rem;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.45;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+  margin: 0 3rem;
+}
+
+.brand-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@media (min-width: 1024px) {
+  .brand-logo {
+    height: 2.25rem;
+    max-width: 180px;
+    margin: 0 4rem;
+  }
+}
+
+/* ── Gallery thumbnails (selection state via Swiper classes) ── */
 .gallery-thumb {
-  transition: all 0.3s ease;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
   cursor: pointer;
 }
-.gallery-thumb:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(20, 29, 35, 0.12);
+.swiper-slide-thumb-active .gallery-thumb {
+  opacity: 1;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
-.gallery-thumb.active-thumb {
-  ring: 3px solid var(--color-primary);
-  transform: scale(1.05);
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-float,
+  .animate-ping-slow,
+  .animate-bounce,
+  .brand-marquee-track,
+  .img-zoom,
+  .card-lift {
+    animation: none !important;
+    transition: none !important;
+  }
+  .card-lift:hover { transform: none !important; }
+  .hero-anim-init { opacity: 1 !important; }
+}
+
+/* ── Headline balance (shorter headings read better) ── */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* ── Focus visible ring (consistent across interactive elements) ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Tabular nums helper for numeric alignment ── */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* ── Filter chip active uses aria-pressed ── */
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ── Card lift effect (only on anchor cards) ── */
+a.card-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+a.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Gradient text ── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Divider accent ── */
+.divider-accent {
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-container));
+  border-radius: 2px;
+}
+@media (min-width: 1024px) {
+  .divider-accent {
+    width: 4rem;
+  }
+}
+
+/* ── Soft divider (fades to transparent at edges) ── */
+.divider-soft {
+  width: 14rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+}
+@media (min-width: 1024px) {
+  .divider-soft {
+    width: 20rem;
+  }
+}
+
+/* ── Hero entrance pre-hide (avoids FOUC before GSAP runs) ── */
+.hero-anim-init {
+  opacity: 0;
+  will-change: opacity, transform;
 }

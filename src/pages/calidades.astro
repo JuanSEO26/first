@@ -1,0 +1,409 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  currentPage="calidades"
+  title="Calidades y Acabados — Molí Baix"
+  description="Descubre las calidades y acabados premium de Molí Baix. Materiales de Porcelanosa, Pamesa y Balay. Eficiencia energética superior en Massamagrell, Valencia."
+>
+
+  <!-- ═══════════ PAGE HERO ═══════════ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img width="1920" height="1080" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center scale-105"
+        src="/images/cocina-recibidor.webp"
+        alt="Interior de alta calidad Molí Baix" />
+      <div class="absolute inset-0 bg-gradient-to-r from-on-background/70 via-on-background/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-on-background/30 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-40" id="calidades-hero">
+      <nav aria-label="Breadcrumb" class="hero-anim-init flex items-center gap-2 text-sm text-white/50 mb-8">
+        <a href="/" class="hover:text-white transition-colors">Inicio</a>
+        <span class="material-symbols-outlined text-base">chevron_right</span>
+        <span class="text-white" aria-current="page">Calidades</span>
+      </nav>
+      <span class="hero-anim-init label-md tracking-[0.25em] text-primary-fixed-dim mb-4 block font-bold">Calidades y Acabados</span>
+      <h1 class="hero-anim-init text-4xl sm:text-5xl lg:text-7xl font-extrabold font-headline text-white mb-6">
+        Mucho más que<br/>una vivienda
+      </h1>
+      <p class="hero-anim-init text-xl lg:text-2xl text-white/70 max-w-xl font-light mb-10">
+        Viviendas prácticas, con distribuciones inteligentes, materiales de alta calidad y eficiencia energética.
+      </p>
+      <div class="flex flex-wrap items-center gap-4" data-hero-ctas>
+        <a href="/planos/memoria-calidades.pdf" target="_blank" rel="noopener" aria-label="Descargar memoria de calidades (PDF, abre en nueva pestaña)" class="hero-anim-init inline-flex items-center gap-2.5 btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl">
+          <span class="material-symbols-outlined text-xl">download</span>
+          Descargar Memoria
+        </a>
+        <a href="/viviendas" class="hero-anim-init border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+          Ver Viviendas
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FEATURES GRID ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Equipamiento</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Diseñado para tu bienestar
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Cada detalle ha sido cuidadosamente seleccionado para ofrecerte el máximo confort, eficiencia y calidad de vida.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
+        <!-- Cerraduras magnéticas -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">lock</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Cerraduras Magnéticas</h3>
+          <p class="text-secondary text-sm">Puertas de paso con cerraduras magnéticas silenciosas para mayor confort acústico en el hogar.</p>
+        </div>
+
+        <!-- Climatización -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">ac_unit</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Climatización</h3>
+          <p class="text-secondary text-sm">Sistema de conductos con control térmico óptimo en toda la vivienda. Calor y frío regulable por estancias.</p>
+        </div>
+
+        <!-- Electricidad Sostenible -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">bolt</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Electricidad Sostenible</h3>
+          <p class="text-secondary text-sm">Placas fotovoltaicas comunitarias para zonas comunes. Máxima eficiencia energética y menor huella ambiental.</p>
+        </div>
+
+        <!-- Aerotermia -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">heat_pump</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Aerotermia</h3>
+          <p class="text-secondary text-sm">Sistema de agua caliente sanitaria comunitaria con aerotermia. Tecnología limpia y de alta eficiencia.</p>
+        </div>
+
+        <!-- Terrazas -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">balcony</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Terrazas</h3>
+          <p class="text-secondary text-sm">Amplias terrazas privadas con suelo porcelánico antideslizante. Espacios exteriores diseñados para disfrutar.</p>
+        </div>
+
+        <!-- Iluminación LED -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">lightbulb</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Iluminación LED</h3>
+          <p class="text-secondary text-sm">Iluminación LED integrada en toda la vivienda. Bajo consumo, larga duración y ambiente cálido.</p>
+        </div>
+
+        <!-- Ascensores -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">elevator</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Ascensores</h3>
+          <p class="text-secondary text-sm">Ascensores de última generación con acceso directo desde el garaje. Comodidad y accesibilidad en cada planta.</p>
+        </div>
+
+        <!-- Movilidad Sostenible -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">electric_car</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Movilidad Sostenible</h3>
+          <p class="text-secondary text-sm">Parking de bicicletas comunitario y preinstalación para recarga de vehículo eléctrico en plaza de garaje.</p>
+        </div>
+
+        <!-- Gimnasio -->
+        <div class="bg-white rounded-2xl p-8 editorial-shadow border border-surface-container-high/40 group">
+          <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-2xl">fitness_center</span>
+          </div>
+          <h3 class="text-lg font-extrabold font-headline text-on-background mb-2">Gimnasio Equipado</h3>
+          <p class="text-secondary text-sm">Espacio exclusivo para residentes con equipamiento profesional. Cuida tu salud sin salir de casa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ COCINA ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <!-- Image -->
+        <div class="anim-reveal flex flex-col justify-center">
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden editorial-shadow-lg aspect-[4/3]">
+              <img class="w-full h-full object-cover" loading="lazy"
+                src="/images/cocina.webp"
+                alt="Cocina completamente equipada con electrodomésticos Balay" />
+            </div>
+            <div class="absolute -bottom-6 -right-4 lg:-bottom-8 lg:-right-8 hidden sm:block">
+              <div class="bg-white rounded-xl px-5 py-4 editorial-shadow-lg border border-surface-container-high/40">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+                  <div>
+                    <p class="font-bold text-sm text-on-background">Electrodomésticos Balay</p>
+                    <p class="text-xs text-secondary">Incluidos de serie</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="anim-reveal flex flex-col justify-center">
+          <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Cocina Completa</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6">El corazón de tu hogar</h2>
+          <p class="text-on-surface-variant mb-8 text-lg">
+            Cocinas completamente equipadas con materiales de primera calidad y electrodomésticos de serie, listas para disfrutar desde el primer día.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">countertops</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Muebles altos y bajos de gran capacidad</h4>
+                <p class="text-secondary text-xs mt-1">Cierre suave, tiradores integrados y acabados en melamina de alta calidad.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">kitchen</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Electrodomésticos integrados Balay</h4>
+                <p class="text-secondary text-xs mt-1">Frigorífico, placa de inducción, horno, microondas y lavavajillas.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">format_color_fill</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Encimera Silestone</h4>
+                <p class="text-secondary text-xs mt-1">Superficie premium de alta resistencia y fácil mantenimiento.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">light</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Iluminación LED bajo mueble</h4>
+                <p class="text-secondary text-xs mt-1">Luz integrada para una cocina funcional y con ambiente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ BAÑOS — PORCELANOSA / NOKEN ═══════════ -->
+  <section class="py-16 lg:py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <!-- Content (left on desktop) -->
+        <div class="order-2 lg:order-1 anim-reveal flex flex-col justify-center">
+          <span class="label-md tracking-[0.25em] text-primary mb-6 font-bold block">Porcelanosa Group / Noken</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-6">Baños Premium</h2>
+          <p class="text-on-surface-variant mb-8 text-lg">
+            Acabados exclusivos de la firma Porcelanosa Group. Sanitarios Noken, grifería de diseño y revestimientos cerámicos de primera calidad que transforman cada baño en un espacio de bienestar.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">bathroom</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Sanitarios de Porcelanosa</h4>
+                <p class="text-secondary text-xs mt-1">Inodoro suspendido y lavabo de diseño con líneas minimalistas.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">shower</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Plato de ducha de resina con mampara</h4>
+                <p class="text-secondary text-xs mt-1">Plato extraplano de resina con mampara fija de cristal templado.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-container-high/40 editorial-shadow">
+              <span class="material-symbols-outlined text-primary mt-0.5">water_drop</span>
+              <div>
+                <h4 class="font-bold text-sm text-on-background">Grifería efecto lluvia</h4>
+                <p class="text-secondary text-xs mt-1">Columna de ducha con rociador de efecto lluvia y teleducha.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-secondary italic">Dos baños completos por vivienda (según tipología).</p>
+        </div>
+
+        <!-- Images (right on desktop) -->
+        <div class="order-1 lg:order-2 relative anim-reveal">
+          <div class="rounded-2xl overflow-hidden editorial-shadow-lg h-full">
+            <img class="w-full h-full object-cover" loading="lazy"
+              src="/images/bano.webp"
+              alt="Baño premium con acabados Porcelanosa y Noken" />
+          </div>
+          <div class="absolute -bottom-6 -left-4 lg:-bottom-10 lg:-left-8 w-2/5 rounded-xl overflow-hidden border-8 border-surface-container-lowest shadow-2xl hidden sm:block">
+            <img class="w-full aspect-square object-cover" loading="lazy"
+              src="/images/ducha-bano.webp"
+              alt="Detalle de ducha con grifería efecto lluvia" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ PAVIMENTOS ═══════════ -->
+  <section class="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-surface-container">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14 anim-reveal">
+        <span class="label-md tracking-[0.25em] text-primary mb-4 block font-bold">Pavimentos y Revestimientos</span>
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-background mb-4">
+          Marcas de primera
+        </h2>
+        <div class="divider-accent mx-auto mb-6"></div>
+        <p class="text-on-surface-variant text-lg">
+          Acabados exclusivos de Porcelanosa y Pamesa. Suelos porcelánicos de última generación con aspecto madera natural y piedra, combinando belleza con resistencia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 anim-reveal">
+        <!-- Salon -->
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group transition-all duration-300">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/salon-ventanal.webp" alt="Pavimento porcelánico en salón" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Salón y Dormitorios</h3>
+            <p class="text-secondary text-sm">Porcelánico efecto madera de gran formato. Calidez natural con la durabilidad del gres.</p>
+            <div class="mt-4 pt-4 border-t border-surface-container-high/40">
+              <p class="label-md text-primary text-xs">Porcelanosa / Pamesa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cocina -->
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group transition-all duration-300">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/cocina-salon.webp" alt="Pavimento porcelánico en cocina" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Cocina y Baños</h3>
+            <p class="text-secondary text-sm">Revestimientos cerámicos de alta resistencia. Fácil limpieza y mantenimiento mínimo.</p>
+            <div class="mt-4 pt-4 border-t border-surface-container-high/40">
+              <p class="label-md text-primary text-xs">Porcelanosa / Pamesa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terraza -->
+        <div class="bg-white rounded-2xl overflow-hidden editorial-shadow border border-surface-container-high/40 group transition-all duration-300">
+          <div class="overflow-hidden">
+            <img class="w-full h-52 object-cover img-zoom" loading="lazy" src="/images/jardines.webp" alt="Pavimento exterior en terrazas" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-extrabold font-headline text-on-background mb-1">Terrazas y Exteriores</h3>
+            <p class="text-secondary text-sm">Gres porcelánico antideslizante para exteriores. Resistencia y seguridad en espacios abiertos.</p>
+            <div class="mt-4 pt-4 border-t border-surface-container-high/40">
+              <p class="label-md text-primary text-xs">Pamesa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ BRAND LOGOS (infinite marquee) ═══════════ -->
+  <section class="pt-4 pb-12 lg:pt-6 lg:pb-16 bg-surface-container border-y border-surface-container-high/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-16 lg:mb-20">
+      <p class="label-md tracking-[0.25em] text-primary/60 text-center font-bold">Marcas de Confianza</p>
+    </div>
+    <div class="brand-marquee">
+      <div class="brand-marquee-track">
+        <img src="/images/logos/porcelanosa-logo.webp" alt="Porcelanosa" class="brand-logo" />
+        <img src="/images/logos/noken-logo.webp" alt="Noken" class="brand-logo" />
+        <img src="/images/logos/balay-logo.webp" alt="Balay" class="brand-logo" />
+        <img src="/images/logos/pamesa-logo.webp" alt="Pamesa" class="brand-logo" />
+        <img src="/images/logos/porcelanosa-logo.webp" alt="Porcelanosa" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/noken-logo.webp" alt="Noken" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/balay-logo.webp" alt="Balay" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/pamesa-logo.webp" alt="Pamesa" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/porcelanosa-logo.webp" alt="Porcelanosa" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/noken-logo.webp" alt="Noken" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/balay-logo.webp" alt="Balay" class="brand-logo" aria-hidden="true" />
+        <img src="/images/logos/pamesa-logo.webp" alt="Pamesa" class="brand-logo" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ DOWNLOAD CTA ═══════════ -->
+  <section class="py-16 lg:py-24 bg-on-background relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/8 skew-x-12 translate-x-1/4"></div>
+    <div class="absolute bottom-0 left-0 w-1/4 h-full bg-primary/5 -skew-x-12 -translate-x-1/4"></div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center anim-reveal">
+      <span class="material-symbols-outlined text-primary text-5xl mb-6 block animate-float">description</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-white mb-4">
+        ¿Quieres conocer todos los detalles?
+      </h2>
+      <p class="text-inverse-on-surface/50 text-lg mb-10 max-w-xl mx-auto">
+        Descarga la memoria de calidades completa con todas las especificaciones técnicas, materiales y acabados.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/planos/memoria-calidades.pdf" target="_blank" rel="noopener" aria-label="Descargar memoria de calidades completa (PDF, abre en nueva pestaña)" class="btn-primary-gradient text-on-primary px-10 py-4 rounded-full font-semibold text-lg transition-all active:scale-95 hover:shadow-xl inline-flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl">download</span> Descargar Memoria de Calidades
+        </a>
+        <a href="/#contacto" class="border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all hover:bg-white/10 active:scale-95">
+          Contactar con Ventas
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+
+<!-- ═══════════ PAGE-SPECIFIC SCRIPTS ═══════════ -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Hero entrance animation ── */
+  const hero = document.getElementById('calidades-hero');
+  if (hero && !prefersReducedMotion) {
+    const breadcrumb = hero.querySelector('nav');
+    const label = hero.querySelector('.label-md');
+    const heading = hero.querySelector('h1');
+    const desc = hero.querySelector('p');
+    const ctas = hero.querySelectorAll('[data-hero-ctas] > a');
+    const tl = gsap.timeline({ delay: 0.2 });
+    if (breadcrumb) tl.fromTo(breadcrumb, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' });
+    if (label) tl.fromTo(label, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.25');
+    if (heading) tl.fromTo(heading, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.35');
+    if (desc) tl.fromTo(desc, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.45');
+    if (ctas.length) tl.fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.12, ease: 'power3.out' }, '-=0.35');
+  } else if (hero) {
+    hero.querySelectorAll('.hero-anim-init').forEach((el) => (el as HTMLElement).style.opacity = '1');
+  }
+</script>
