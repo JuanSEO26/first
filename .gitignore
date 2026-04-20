@@ -4,6 +4,8 @@ dist/
 .astro/
 # vercel
 .vercel/
+# claude code local settings
+.claude/
 
 # dependencies
 node_modules/
