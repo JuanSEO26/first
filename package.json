@@ -7,15 +7,12 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "mcp": "node ./mcp/server.mjs"
   },
   "dependencies": {
-    "@astrojs/node": "^10.0.4",
-    "@astrojs/vercel": "^10.0.4",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
     "@modelcontextprotocol/sdk": "^1.29.0",
